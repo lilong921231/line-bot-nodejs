@@ -87,21 +87,10 @@ function ceshi(event) {
 
         var tishi = '请搜索百度' + '\n';
 
-        return tishi + time5(baidu);
+        return tishi + baidu;
     }
 
 
-
-}
-
-function time5(url) {
-
-    setTimeout(function(){
-        var userId = event.message.userId;
-
-
-       return userId + '\n' + url;
-    },5000);
 
 }
 
