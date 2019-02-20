@@ -52,9 +52,9 @@ bot.on('message', function(event) {
         console.log(bot);
         console.log('send: '+sendMsg);
     },5000);
+var baidu = 'http://www.baidu.com';
 
-
-    event.reply(event.message.text).then(function (data) {
+    event.reply(baidu).then(function (data) {
 
 
      /* console.log('data');
