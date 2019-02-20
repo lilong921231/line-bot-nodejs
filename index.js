@@ -45,7 +45,7 @@ bot.on('message', function(event) {
 
 
 
-    event.reply(baidu).then(function (data) {
+    event.reply(event.message.text).then(function (data) {
      /* console.log('data');
       console.log(data); // 信息暂无*/
     // success
