@@ -54,22 +54,6 @@ bot.on('message', function(event) {
     });
 
 
-    setTimeout(function(){
-        var userId = event.message.userId;
-        var sendMsg = 'test';
-        bot.push(userId,sendMsg);
-        console.log(bot.toString());
-        console.log(bot);
-        console.log('send: '+sendMsg);
-        var baidu = 'http://www.baidu.com';
-        event.reply(baidu).then(function (data) {
-
-        }).catch(function (error) {
-
-        });
-    },5000);
-
-
 
 
 
