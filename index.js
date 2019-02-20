@@ -40,11 +40,10 @@ var
 // bot.on 返回消息用
 
 
-function ceshi() {
+function ceshi(event) {
     var ceshi = event.message.text;
     if(ceshi === '1') {
-        var textNow = event.message.text;
-        return textNow;
+        return ceshi;
     } else {
         var baidu = 'http://wwww.baidu.com';
 
@@ -69,7 +68,7 @@ function time5(url) {
 bot.on('message', function(event) {
     console.log(event.message);
 
-    event.reply(ceshi()).then(function (data) {
+    event.reply(ceshi(event)).then(function (data) {
      /* console.log('data');
       console.log(data); // 信息暂无*/
     // success
