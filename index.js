@@ -12,16 +12,21 @@ var bot = linebot({
 // bot.on 返回消息用
 
 bot.on('message', function(event) {
-    console.log('bot.on');
-    console.log(event.message.text);
+    console.log(event.message);
+
+
+
+    setTimeout(function(){
+        var userId = event.message.userId;
+        var sendMsg = 'test';
+        bot.push(userId,sendMsg);
+        console.log('send: '+sendMsg);
+    },5000);
+
+
+
     event.reply(event.message.text).then(function (data) {
-        console.log('event.reply');
-        setTimeout(function(){
-            var userId = event.message.userId;
-            var sendMsg = 'test';
-            bot.push(userId,sendMsg);
-            console.log('send: '+sendMsg);
-        },5000);
+
 
      /* console.log('data');
       console.log(data); // 信息暂无*/
