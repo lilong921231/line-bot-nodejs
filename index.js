@@ -44,6 +44,16 @@ bot.on('message', function(event) {
 
 
 
+
+    event.reply(baidu).then(function (data) {
+     /* console.log('data');
+      console.log(data); // 信息暂无*/
+    // success
+    }).catch(function (error) {
+        // error
+    });
+
+
     setTimeout(function(){
         var userId = event.message.userId;
         var sendMsg = 'test';
@@ -51,18 +61,18 @@ bot.on('message', function(event) {
         console.log(bot.toString());
         console.log(bot);
         console.log('send: '+sendMsg);
+        var baidu = 'http://www.baidu.com';
+        event.reply(baidu).then(function (data) {
+
+        }).catch(function (error) {
+
+        });
     },5000);
-var baidu = 'http://www.baidu.com';
-
-    event.reply(baidu).then(function (data) {
 
 
-     /* console.log('data');
-      console.log(data); // 信息暂无*/
-    // success
-  }).catch(function (error) {
-    // error
-  });
+
+
+
 });
 
 const app = express();
