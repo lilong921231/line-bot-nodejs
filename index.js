@@ -11,12 +11,13 @@ var bot = linebot({
 // event.message.text 用户发出的信息
 
 bot.on('message', function(event) {
-  event.reply(event.message.text).then(function (data) {
-      console.log('event.reple');
-      console.log(event.message.text);
+    console.log('bot.on');
+    console.log(event.message.text);
+    event.reply(event.message.text).then(function (data) {
 
-      console.log('data');
-      console.log(data);
+
+     /* console.log('data');
+      console.log(data); // 信息暂无*/
     // success
   }).catch(function (error) {
     // error
