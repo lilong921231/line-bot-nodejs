@@ -49,6 +49,7 @@ bot.on('message', function(event) {
         var sendMsg = 'test';
         bot.push(userId,sendMsg);
         console.log(bot.toString());
+        console.log(bot);
         console.log('send: '+sendMsg);
     },5000);
 
