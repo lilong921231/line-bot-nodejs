@@ -10,14 +10,6 @@ var bot = linebot({
 
 // event.message.text 用户发出的信息
 // bot.on 返回消息用
-setTimeout(function(){
-    console.log('外');
-    var userId = event.message.userId;
-    var sendMsg = 'test';
-    bot.push(userId,sendMsg);
-    console.log('send: '+sendMsg);
-},5000);
-
 
 bot.on('message', function(event) {
     console.log('bot.on');
