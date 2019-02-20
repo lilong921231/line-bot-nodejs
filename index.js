@@ -10,8 +10,7 @@ var bot = linebot({
 
 bot.on('message', function(event) {
   console.log('toString' + event.toString()); //把收到訊息的 event 印出來看看
-    console.log('toJSON' + event.toJSON()); //把收到訊息的 event 印出來看看
-    console.log('json' + event.json); //把收到訊息的 event 印出來看看
+  console.log('json' + event.json); //把收到訊息的 event 印出來看看
   event.reply(event.message.text).then(function (data) {
     // success
   }).catch(function (error) {
