@@ -9,6 +9,34 @@ var bot = linebot({
 });
 
 // event.message.text 用户发出的信息
+// event.message 在bot.on里可以直接使用
+// event.message.id 信息的id还是用户的id 未知
+/*
+
+var
+    evetn = {
+        type: 'message',// 类型
+        replyToken: '', // token
+        sourece: {
+            userId: '',
+            type: 'user',
+            profile: [Function], // 功能未知
+        },
+        timestamp: '', // 时间戳
+        message: {
+            type: 'text', // 文本类型
+            id: '', // 消息id
+            text: '', // 用户发送的消息内容
+            content: [Function] // 功能未知
+        },
+        reply: [Function] // 功能未知
+
+    };
+// 都可以直接 event加'.'点出来
+*/
+
+
+
 // bot.on 返回消息用
 
 bot.on('message', function(event) {
@@ -20,11 +48,12 @@ bot.on('message', function(event) {
         var userId = event.message.userId;
         var sendMsg = 'test';
         bot.push(userId,sendMsg);
+        console.log(bot.toString());
         console.log('send: '+sendMsg);
     },5000);
 
 
-    event.reply(bot).then(function (data) {
+    event.reply(event.message.text).then(function (data) {
 
 
      /* console.log('data');
