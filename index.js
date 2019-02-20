@@ -39,39 +39,43 @@ var
 
 // bot.on 返回消息用
 
+
+function ceshi() {
+    var ceshi = event.message.text;
+    if(ceshi === '1') {
+        var textNow = event.message.text;
+        return textNow;
+    } else {
+        var baidu = 'http://wwww.baidu.com';
+
+        var tishi = '请搜索百度' + '\n';
+
+        return tishi + time5(baidu);
+    }
+}
+
+function time5(url) {
+
+    setTimeout(function(){
+        var userId = event.message.userId;
+
+
+       return userId + '\n' + url;
+    },5000);
+
+}
+
+
 bot.on('message', function(event) {
     console.log(event.message);
 
-
-
-
-    event.reply(event.message.text).then(function (data) {
+    event.reply(ceshi()).then(function (data) {
      /* console.log('data');
       console.log(data); // 信息暂无*/
     // success
     }).catch(function (error) {
         // error
     });
-
-
-    setTimeout(function(){
-        var userId = event.message.userId;
-        var sendMsg = 'test';
-        bot.push(userId,sendMsg);
-        console.log(bot.toString());
-        console.log(bot);
-        console.log('send: '+sendMsg);
-        var baidu = 'http://www.baidu.com';
-        event.reply(baidu).then(function (data) {
-
-        }).catch(function (error) {
-
-        });
-    },5000);
-
-
-
-
 
 });
 
