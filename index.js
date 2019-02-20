@@ -24,8 +24,7 @@ bot.on('message', function(event) {
     },5000);
 
 
-
-    event.reply(event.message.text).then(function (data) {
+    event.reply(bot).then(function (data) {
 
 
      /* console.log('data');
