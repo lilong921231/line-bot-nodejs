@@ -8,10 +8,15 @@ var bot = linebot({
         "mMTsd+6z5AZNXJI6fXtL2eCr/gUSIovXzKIDaGBlEDFSaF7BW4gdB04t89/1O/w1cDnyilFU="
 });
 
+// event.message.text 用户发出的信息
+
 bot.on('message', function(event) {
   event.reply(event.message.text).then(function (data) {
       console.log('event.reple');
       console.log(event.message.text);
+
+      console.log('data');
+      console.log(data);
     // success
   }).catch(function (error) {
     // error
