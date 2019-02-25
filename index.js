@@ -44,7 +44,7 @@ function ceshi(event) {
         return ceshi;
     } else if (ceshi === '22'){
 
-        var frontship = {
+        return {
             type: "template",
             altText: "This is a buttons template",
             template: {
@@ -79,8 +79,6 @@ function ceshi(event) {
                 ]
             }
         };
-
-        return frontship;
     } else if(ceshi === 'ios') {
         var ios =  'IOSFrontShip://';
         return ios;
