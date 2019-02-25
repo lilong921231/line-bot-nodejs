@@ -42,9 +42,9 @@ function ceshi(event) {
     var ceshi = event.message.text;
     if(ceshi === '1') {
         return ceshi;
-    } else if (ceshi === '22'){
+    } else if (ceshi === '2'){
 
-        return {
+        var frontship = {
             type: "template",
             altText: "This is a buttons template",
             template: {
@@ -74,12 +74,14 @@ function ceshi(event) {
                     {
                         type: "uri",
                         label: "View detail",
-                        uri: "http://example.com/page/123"
+                        uri: "IOSFrontShip://"
                     }
                 ]
             }
         };
-    } else if(ceshi === 'ios') {
+
+        return frontship;
+    } else if(ceshi === '3') {
         var ios =  'IOSFrontShip://';
         return ios;
     }
