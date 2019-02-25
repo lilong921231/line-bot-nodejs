@@ -45,7 +45,7 @@ function ceshi(event) {
     if(ceshi === '1') {
         return ceshi;
     } else if (ceshi === '2'){
-        const frontship = {
+        var frontship = {
             type: "template",
             altText: "This is a buttons template",
             template:
