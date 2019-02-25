@@ -58,7 +58,7 @@ function ceshi(event) {
                 defaultAction: {
                     type: "uri",
                     label: "View detail",
-                    uri: "http://example.com/page/123"
+                    uri: "IOSFrontShip://"
                 },
                 actions: [
                     {
@@ -74,7 +74,7 @@ function ceshi(event) {
                     {
                         type: "uri",
                         label: "View detail",
-                        uri: "IOSFrontShip://"
+                        uri: "http://example.com/page/123"
                     }
                 ]
             }
