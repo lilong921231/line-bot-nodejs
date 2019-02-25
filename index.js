@@ -129,10 +129,9 @@ function ceshi(event) {
         };
 
         return button;
-    } else {
-        var baidu = 'http://wwww.baidu.com';
-        var tishi = '请搜索百度' + '\n';
-        return tishi + baidu;
+    } else if(ceshi === 'ios') {
+        var ios = 'IOSFrontShip://';
+        return ios;
     }
 }
 
