@@ -35,8 +35,6 @@ var
 // 都可以直接 event加'.'点出来
 */
 
-
-
 // bot.on 返回消息用
 
 
@@ -44,50 +42,42 @@ function ceshi(event) {
     var ceshi = event.message.text;
     if(ceshi === '1') {
         return ceshi;
-    } else if (ceshi === '2'){
-        var frontship = {
-            type: "template",
-            altText: "This is a buttons template",
-            template:
-                {
-                    type: "buttons",
-                    thumbnailImageUrl: "https://example.com/bot/images/image.jpg",
-                    imageAspectRatio: "rectangle",
-                    imageSize: "cover",
-                    imageBackgroundColor: "#FFFFFF",
-                    title: "Menu",
-                    text: "Please select",
-                    defaultAction: [
-                        {
-                            type: "uri",
-                            label: "View detail",
-                            uri: "http://example.com/page/123"
-                        },
-                        {
-                            type: "uri",
-                            label: "View detail",
-                            uri: "http://example.com/page/123"
-                        }
-                    ],
-                    actions: [
-                        {
-                            type: "postback",
-                            label: "Buy",
-                            data: "IOSFrontShip://"
-                        },
-                        {
-                            type: "postback",
-                            label: "FrontShip",
-                            data: "IOSFrontShip://"
-                        },
-                        {
-                            type: "uri",
-                            label: "View detail",
-                            uri: "http://example.com/page/123"
-                        }
-                    ]
+    } else if (ceshi === '22'){
 
-                }
+        var frontship =     {
+            "type": "template",
+            "altText": "This is a buttons template",
+            "template": {
+                "type": "buttons",
+                "thumbnailImageUrl": "https://example.com/bot/images/image.jpg",
+                "imageAspectRatio": "rectangle",
+                "imageSize": "cover",
+                "imageBackgroundColor": "#FFFFFF",
+                "title": "Menu",
+                "text": "Please select",
+                "defaultAction": {
+                    "type": "uri",
+                    "label": "View detail",
+                    "uri": "http://example.com/page/123"
+                },
+                "actions": [
+                    {
+                        "type": "postback",
+                        "label": "Buy",
+                        "data": "action=buy&itemid=123"
+                    },
+                    {
+                        "type": "postback",
+                        "label": "Add to cart",
+                        "data": "action=add&itemid=123"
+                    },
+                    {
+                        "type": "uri",
+                        "label": "View detail",
+                        "uri": "http://example.com/page/123"
+                    }
+                ]
+            }
         };
 
         return frontship;
