@@ -92,7 +92,7 @@ function ceshi(event) {
 
         return button;
     } else if(ceshi === 'ios') {
-        var ios = {'IOSFrontShip://';
+        var ios = 'IOSFrontShip://';
         return ios;
     }
 }
