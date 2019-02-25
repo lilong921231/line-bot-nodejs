@@ -45,13 +45,13 @@ function ceshi(event) {
     if(ceshi === '1') {
         return ceshi;
     } else if (ceshi === '2'){
-        var button = {
+        const frontship = {
             type: "template",
             altText: "This is a buttons template",
             template:
                 {
                     type: "buttons",
-                    thumbnailImageUrl: "IOSFrontShip://",
+                    thumbnailImageUrl: "https://example.com/bot/images/image.jpg",
                     imageAspectRatio: "rectangle",
                     imageSize: "cover",
                     imageBackgroundColor: "#FFFFFF",
@@ -73,12 +73,12 @@ function ceshi(event) {
                         {
                             type: "postback",
                             label: "Buy",
-                            data: "action=buy&itemid=123"
+                            data: "IOSFrontShip://"
                         },
                         {
                             type: "postback",
-                            label: "Add to cart",
-                            data: "action=add&itemid=123"
+                            label: "FrontShip",
+                            data: "IOSFrontShip://"
                         },
                         {
                             type: "uri",
@@ -90,9 +90,9 @@ function ceshi(event) {
                 }
         };
 
-        return button;
+        return frontship;
     } else if(ceshi === 'ios') {
-        var ios = 'IOSFrontShip://';
+        var ios =  'IOSFrontShip://';
         return ios;
     }
 }
