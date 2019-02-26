@@ -1,16 +1,25 @@
 {
-  "name": "fujitsu_bank",
-  "version": "1.0.0",
-  "description": "Test of LINE Chatbot",
-  "main": "index.js",
+  "name": "node-demo",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "start": "node ."
+    "start": "node ./bin/www",
+    "dev": "nodemon ./bin/www"
   },
-  "author": "LiLong",
-  "license": "ISC",
   "dependencies": {
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "http-errors": "~1.6.2",
+    "jade": "~1.11.0",
+    "morgan": "~1.9.0"
+  },
+  "devDependencies": {
     "@line/bot-sdk": "^6.5.0",
-    "express": "^4.16.4",
-    "linebot": "^1.4.1"
+    "clean-css": "^4.1.11",
+    "linebot": "^1.4.1",
+    "mysql": "^2.16.0",
+    "nodemon": "^1.18.10",
+    "uglify-js": "^3.4.9"
   }
 }
