@@ -14,9 +14,9 @@ function talkServer(eventSelect) {
             return talk.detailedOfWeek('2018-11-09', day, '500000', '-2000000', '20000000');
         case '3':
             return {
-                "type": "image",
-                "originalContentUrl": "https://github.com/lilong921231/line-bot-nodejs/blob/master/public/images/wages.png",
-                "previewImageUrl": "https://github.com/lilong921231/line-bot-nodejs/blob/master/public/images/wages.png"
+                type: "image",
+                originalContentUrl: "../..//public/images/wages.png",
+                previewImageUrl: "https://github.com/lilong921231/line-bot-nodejs/blob/master/public/images/wages.png"
             };
     }
 }
