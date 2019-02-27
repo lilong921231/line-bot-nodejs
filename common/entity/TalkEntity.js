@@ -192,7 +192,7 @@ class talkEntity {
                             },
                             {
                                 type: "image",
-                                url: "../../public/images/accountBalance.png",
+                                img: "../../public/images/accountBalance.png",
                                 margin: "md"
                             },
                             {
@@ -221,7 +221,7 @@ class talkEntity {
                             },
                             {
                                 type: "image",
-                                url: "../../public/images/creditCard.png"
+                                img: "../../public/images/creditCard.png"
                             },
                             {
                                 type: "text",
