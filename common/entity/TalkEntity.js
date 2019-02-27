@@ -158,8 +158,9 @@ class talkEntity {
                             },
                             {
                                 type: "image",
-                                previewImageUrl: '../../public/images/wages.png',
-                               // url: "../../public/images/wages.png",
+                              // previewImageUrl: '',
+                                //url: "../../public/images/wages.png",
+                                url: "https://developers.line.me/assets/images/services/bot-designer-icon.png",
                                 margin: "md"
                             },
                             {
@@ -193,7 +194,7 @@ class talkEntity {
                             },
                             {
                                 type: "image",
-                                previewImageUrl: "../../public/images/accountBalance.png",
+                                url: "https://developers.line.me/assets/images/services/bot-designer-icon.png",
                                 margin: "md"
                             },
                             {
@@ -222,7 +223,7 @@ class talkEntity {
                             },
                             {
                                 type: "image",
-                                previewImageUrl: "../../public/images/creditCard.png"
+                                url: "https://developers.line.me/assets/images/services/bot-designer-icon.png",
                             },
                             {
                                 type: "text",
