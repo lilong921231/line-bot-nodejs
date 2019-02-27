@@ -1,5 +1,4 @@
 
-var ceshi = require('../../public/images/wages.png')
 
 class talkEntity {
 
