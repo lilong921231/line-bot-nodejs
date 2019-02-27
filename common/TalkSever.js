@@ -15,8 +15,8 @@ function talkServer(eventSelect) {
         case '3':
             return {
                 "type": "image",
-                "originalContentUrl": "https://example.com/original.jpg",
-                "previewImageUrl": "https://example.com/preview.jpg"
+                "originalContentUrl": "https://github.com/lilong921231/line-bot-nodejs/blob/master/public/images/wages.png",
+                "previewImageUrl": "https://github.com/lilong921231/line-bot-nodejs/blob/master/public/images/wages.png"
             };
     }
 }
