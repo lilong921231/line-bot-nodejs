@@ -56,13 +56,13 @@ bot.on('message', function(event) {
     console.log(event.message);
     event.reply(serverTest(event.message.text)).then(function (data) {
         // success
-        console.log('=============== server =================')
+        console.log('=============== server =================');
         console.log(event.message);
         console.log(serverTest(event.message.text));
     }).catch(function (error) {
         // error
         console.log(error);
-        console.log('=============== error =================')
+        console.log('=============== error =================');
     });
 });
 
