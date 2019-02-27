@@ -6,7 +6,8 @@ var talk = new talkEntity();
 function talkServer(eventSelect) {
     switch (eventSelect) {
         case 'ceshi':
-            talk.firstTimeEntity('5000000');
+            console.log(eventSelect);
+            return talk.firstTimeEntity('5000000');
     }
 }
 
