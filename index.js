@@ -1,4 +1,4 @@
-var linebot = require('linebot');
+var linebot = require('./linebot');
 var express = require('express');
 // var bot = require('./line.config');
 
