@@ -158,7 +158,7 @@ class talkEntity {
                             },
                             {
                                 type: "image",
-                                url: "../../public/images/wages.png",
+                                img: "../../public/images/wages.png",
                                 margin: "md"
                             },
                             {
