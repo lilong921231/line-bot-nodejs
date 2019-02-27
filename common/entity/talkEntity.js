@@ -1,5 +1,4 @@
 
-
 class talkEntity {
 
     AddDate(date, addDays){
@@ -109,7 +108,6 @@ class talkEntity {
         }
     }
 
-    /* 时间日期，金钱，待定*/
     /**
      *
      * @param date year
@@ -297,12 +295,12 @@ class talkEntity {
         }
     }
 
-    /* 钱，网页，没事画面是否变动*/
     /**
      * thisWeekEvent
      * @returns {{type: string, altText: string, contents: {type: string, direction: string, body: {type: string, layout: string, contents: *[]}}}}
      */
     thisWeekEvent(date, day, week, money) {
+        const nowDate = this.AddDate(date, 0);
         return {
             type: "flex",
             altText: "Flex Message",
@@ -330,7 +328,7 @@ class talkEntity {
                         },
                         {
                             type: "text",
-                            text: "2019年 XX月XX日(月)",
+                            text: nowDate + "(" + week + ")",
                             margin: "md"
                         },
                         {
@@ -432,7 +430,5 @@ class talkEntity {
         }
     }
 }
-
-
 
 module.exports = talkEntity;
