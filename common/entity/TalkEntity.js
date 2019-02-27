@@ -188,7 +188,7 @@ class talkEntity {
                             },
                             {
                                 type: "text",
-                                text: twoDaysLater + "(" + twoDaysLater + ")",
+                                text: twoDaysLater + "(" + twoDaysLaterWeek + ")",
                                 margin: "xl"
                             },
                             {
@@ -217,7 +217,7 @@ class talkEntity {
                             },
                             {
                                 type: "text",
-                                text: fourDaysLater + "(" + fourDaysLater + ")",
+                                text: fourDaysLater + "(" + fourDaysLaterWeek + ")",
                                 margin: "md"
                             },
                             {
