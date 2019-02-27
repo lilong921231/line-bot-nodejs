@@ -53,14 +53,16 @@ function ceshi(event) {
 }
 
 bot.on('message', function(event) {
-
-
-    console.log(server(event));
     console.log(event.message);
     event.reply(server(event.message.text)).then(function (data) {
         // success
+        console.log('=============== server =================')
+        console.log(event.message);
+        console.log(sever(event.message.text));
     }).catch(function (error) {
         // error
+        console.log(error);
+        console.log('=============== error =================')
     });
 });
 
