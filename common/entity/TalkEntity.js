@@ -159,7 +159,7 @@ class talkEntity {
                             {
                                 type: "image",
                               // previewImageUrl: '',
-                                previewImageUrl: "https://github.com/lilong921231/line-bot-nodejs/blob/master/public/images/wages.png",
+                                originalContentUrl: "https://github.com/lilong921231/line-bot-nodejs/blob/master/public/images/wages.png",
                                 margin: "md"
                             },
                             {
@@ -193,7 +193,7 @@ class talkEntity {
                             },
                             {
                                 type: "image",
-                                previewImageUrl: "https://github.com/lilong921231/line-bot-nodejs/blob/master/public/images/accountBalance.png",
+                                originalContentUrl: "https://github.com/lilong921231/line-bot-nodejs/blob/master/public/images/accountBalance.png",
                                 margin: "md"
                             },
                             {
@@ -222,7 +222,7 @@ class talkEntity {
                             },
                             {
                                 type: "image",
-                                previewImageUrl: "https://github.com/lilong921231/line-bot-nodejs/blob/master/public/images/creditCard.png"
+                                originalContentUrl: "https://github.com/lilong921231/line-bot-nodejs/blob/master/public/images/creditCard.png"
                             },
                             {
                                 type: "text",
