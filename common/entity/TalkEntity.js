@@ -193,7 +193,7 @@ class talkEntity {
                             },
                             {
                                 type: "image",
-                                url: "https://github.com/lilong921231/line-bot-nodejs/blob/master/accountBalance.png",
+                                url: "https://github.com/lilong921231/line-bot-nodejs/blob/master/public/images/accountBalance.png",
                                 margin: "md"
                             },
                             {
