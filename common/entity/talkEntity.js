@@ -1,4 +1,6 @@
 
+var ceshi = require('../../public/images/wages.png')
+
 class talkEntity {
 
     AddDate(date, addDays){
@@ -158,7 +160,7 @@ class talkEntity {
                             },
                             {
                                 type: "image",
-                                url: "https://developers.line.me/assets/images/services/bot-designer-icon.png",
+                                url: "../../public/images/wages.png",
                                 margin: "md"
                             },
                             {
@@ -192,7 +194,7 @@ class talkEntity {
                             },
                             {
                                 type: "image",
-                                url: "https://developers.line.me/assets/images/services/bot-designer-icon.png",
+                                url: "../../public/images/accountBalance.png",
                                 margin: "md"
                             },
                             {
@@ -221,7 +223,7 @@ class talkEntity {
                             },
                             {
                                 type: "image",
-                                url: "https://developers.line.me/assets/images/services/bot-designer-icon.png"
+                                url: "../../public/images/creditCard.png"
                             },
                             {
                                 type: "text",
@@ -333,7 +335,7 @@ class talkEntity {
                         },
                         {
                             type: "image",
-                            url: "https://developers.line.me/assets/images/services/bot-designer-icon.png",
+                            url: "../../public/images/cake.png",
                             margin: "md"
                         },
                         {
@@ -363,7 +365,7 @@ class talkEntity {
                         },
                         {
                             type: "image",
-                            url: "https://developers.line.me/assets/images/services/bot-designer-icon.png"
+                            url: "../../public/images/rose.png"
                         },
                         {
                             type: "text",
@@ -413,7 +415,7 @@ class talkEntity {
                         },
                         {
                             type: "image",
-                            url: "https://developers.line.me/assets/images/services/bot-designer-icon.png",
+                            url: "../../public/images/dinner.png",
                             margin: "md"
                         },
                         {
