@@ -2,9 +2,9 @@
   "name": "node-demo",
   "version": "0.0.0",
   "private": true,
+  "main": "index.js",
   "scripts": {
-    "start": "node ./bin/www",
-    "dev": "nodemon ./bin/www"
+    "start": "node ."
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",
