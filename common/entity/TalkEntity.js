@@ -131,7 +131,7 @@ class talkEntity {
          * Date calculation
          */
         for(var i = 0; i < dateJp.length; i++) {
-            if(week === dateJp[i]) {
+            if(day === dateJp[i]) {
                 twoDaysLaterWeek = dateJp[(i + 2) % 7];
                 fourDaysLaterWeek = dateJp[(i + 4) % 7];
                 break;
