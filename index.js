@@ -1,6 +1,6 @@
 var express = require('express');
 var bot = require('./line.config');
-var server = require('./common/server.js');
+var server = require('common/server.js');
 
 
 function ceshi(event) {
