@@ -154,7 +154,7 @@ class talkEntity {
                         contents: [
                             {
                                 type: "text",
-                                text: nowDate + "(" + week + ")"
+                                text: nowDate + "(" + day + ")"
                             },
                             {
                                 type: "image",
