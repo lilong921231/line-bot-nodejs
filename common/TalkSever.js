@@ -3,7 +3,7 @@ var talkEntity = require('./entity/TalkEntity');
 var talk = new talkEntity();
 
 
-function Server(eventSelect) {
+function talkServer(eventSelect) {
     switch (eventSelect) {
         case 'ceshi':
             talk.firstTimeEntity('5000000');
@@ -11,5 +11,5 @@ function Server(eventSelect) {
 }
 
 module.exports = {
-    Server
+    talkServer
 };

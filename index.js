@@ -1,6 +1,5 @@
 var express = require('express');
 var bot = require('./line.config');
-var serverTest = require('./common/Sever');
 
 
 function ceshi(event) {
@@ -54,11 +53,11 @@ function ceshi(event) {
 
 bot.on('message', function(event) {
     console.log(event.message);
-    event.reply(serverTest(event.message.text)).then(function (data) {
+    event.reply(talkServer(event.message.text)).then(function (data) {
         // success
         console.log('=============== server =================');
         console.log(event.message);
-        console.log(serverTest(event.message.text));
+        console.log(talkServer(event.message.text));
     }).catch(function (error) {
         // error
         console.log(error);
