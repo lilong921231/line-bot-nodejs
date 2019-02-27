@@ -158,7 +158,8 @@ class talkEntity {
                             },
                             {
                                 type: "image",
-                                img: "../../public/images/wages.png",
+                                previewImageUrl: '../../public/images/wages.png',
+                               // url: "../../public/images/wages.png",
                                 margin: "md"
                             },
                             {
@@ -192,7 +193,7 @@ class talkEntity {
                             },
                             {
                                 type: "image",
-                                img: "../../public/images/accountBalance.png",
+                                previewImageUrl: "../../public/images/accountBalance.png",
                                 margin: "md"
                             },
                             {
@@ -221,7 +222,7 @@ class talkEntity {
                             },
                             {
                                 type: "image",
-                                img: "../../public/images/creditCard.png"
+                                previewImageUrl: "../../public/images/creditCard.png"
                             },
                             {
                                 type: "text",
