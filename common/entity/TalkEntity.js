@@ -158,9 +158,9 @@ class talkEntity {
                             },
                             {
                                 type: "image",
-                              originalContentUrl: '../../public/images/wages.png',
+                              // originalContentUrl: '../../public/images/wages.png',
                                 //url: "../../public/images/wages.png",
-                                // url: "https://developers.line.me/assets/images/services/bot-designer-icon.png",
+                                url: "https://example.com/public/images/wages",
                                 margin: "md"
                             },
                             {
@@ -194,7 +194,7 @@ class talkEntity {
                             },
                             {
                                 type: "image",
-                                originalContentUrl: '../../public/images/wages.png',
+                                url: "https://example.com/public/images/wages",
                                 margin: "md"
                             },
                             {
@@ -223,7 +223,7 @@ class talkEntity {
                             },
                             {
                                 type: "image",
-                                originalContentUrl: '../../public/images/wages.png',
+                                url: "https://example.com/public/images/wages",
                             },
                             {
                                 type: "text",
