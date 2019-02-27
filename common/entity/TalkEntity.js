@@ -112,14 +112,13 @@ class talkEntity {
     /**
      *
      * @param date year
-     * @param day mother and day
-     * @param week week
+     * @param day day
      * @param receipts receipts
      * @param rent rent
      * @param ABCCode ABCCode
      * @returns {{type: string, altText: string, contents: {type: string, body: {type: string, layout: string, spacing: string, contents: {type: string, layout: string, contents: *[]}[]}}}}
      */
-    detailedOfWeek(date, day, week, receipts, rent, ABCCode) {
+    detailedOfWeek(date, day, receipts, rent, ABCCode) {
 
         const nowDate = this.AddDate(date, 0);
         const twoDaysLater = this.AddDate(date, 2);
