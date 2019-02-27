@@ -1,6 +1,6 @@
 var express = require('express');
 var bot = require('./line.config');
-
+var server = require('./common/server.js');
 
 
 function ceshi(event) {
@@ -52,10 +52,12 @@ function ceshi(event) {
     }
 }
 
-
 bot.on('message', function(event) {
+
+
+    console.log(server(event));
     console.log(event.message);
-    event.reply(ceshi(event)).then(function (data) {
+    event.reply(server(event.message.text)).then(function (data) {
         // success
     }).catch(function (error) {
         // error
