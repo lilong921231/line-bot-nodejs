@@ -22,6 +22,10 @@ bot.on('message', function(event) {
         console.log('=============== server =================');
         console.log(event.message);
         console.log(serverTest.talkServer(event.message.text));
+
+        console.log('=============JSON================');
+        console.log(JSON.stringify(serverTest.talkServer(event.message.text)));
+            console.log('=============JSON end================');
     }).catch(function (error) {
         // error
         console.log(error);
