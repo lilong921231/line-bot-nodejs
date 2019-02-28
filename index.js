@@ -4,6 +4,7 @@ var serverTest = require('./common/TalkSever');
 
 bot.on('message', function(event) {
     console.log(event.message);
+
     event.reply(serverTest.talkServer(event.message.text)).then(function (data) {
         // success
         console.log('=============== server =================');

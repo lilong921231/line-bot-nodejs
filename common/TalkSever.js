@@ -41,7 +41,6 @@ function talkServer(eventSelect) {
                                 "action": {
                                     "type": "message",
                                     "label": "Button",
-                                    "text": "2"
                                 }
                             }
                         ]
