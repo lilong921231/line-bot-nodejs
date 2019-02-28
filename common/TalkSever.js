@@ -37,19 +37,13 @@ function talkServer(eventSelect) {
                                 text: "をご案内します。"
                             },
                             {
-                                "type": "button",
-                                "action": {
-                                    "type": "uri",
-                                    "label": "OK",
-                                    "uri": "http://www.baidu.com"
+                                type: "button",
+                                action: {
+                                    type: "message",
+                                    label: "OK",
+                                    text: "2"
+                                    // contents: talk.detailedOfWeek('2018-11-09', day, '500000', '-2000000', '20000000')
                                 }
-//                                 type: "button",
-//                                 action: {
-//                                     type: "message",
-//                                     label: "OK",
-//                                     text: "2"
-//                                     // contents: talk.detailedOfWeek('2018-11-09', day, '500000', '-2000000', '20000000')
-//                                 }
                             }
                         ]
                     }
