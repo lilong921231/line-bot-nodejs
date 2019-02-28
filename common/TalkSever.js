@@ -41,8 +41,8 @@ function talkServer(eventSelect) {
                                 action: {
                                     type: "message",
                                     label: "OK",
-                                    // text: ""
-                                    contents: talk.detailedOfWeek('2018-11-09', day, '500000', '-2000000', '20000000')
+                                    text: ""
+                                    // contents: talk.detailedOfWeek('2018-11-09', day, '500000', '-2000000', '20000000')
                                 }
                             }
                         ]
