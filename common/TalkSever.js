@@ -13,10 +13,9 @@ function talkServer(eventSelect) {
             var day = "日月火水木金土".charAt(new Date().getDay());
             return talk.detailedOfWeek('2018-11-09', day, '500000', '-2000000', '20000000');
         case '3':
-            console.log("=========image===========");
-            var day = "日月火水木金土".charAt(new Date().getDay());
-
             console.log("=========test2===========");
+
+            var day = "日月火水木金土".charAt(new Date().getDay());
             // return talk.receiptsOfWeek();
             return {
                 type: "flex",
@@ -48,7 +47,7 @@ function talkServer(eventSelect) {
                                 action: {
                                     type: "postback",
                                     label: "OK",
-                                    text: talk.detailedOfWeek('2018-11-09', day, '500000', '-2000000', '20000000'),
+                                    contents: talk.detailedOfWeek('2018-11-09', day, '500000', '-2000000', '20000000'),
                                     data: "data"
                                 }
                             }
