@@ -45,7 +45,7 @@ function talkServer(eventSelect) {
                             {
                                 type: "button",
                                 action: {
-                                    type: "flex",
+                                    type: "message",
                                     label: "OK",
                                     text: talk.detailedOfWeek('2018-11-09', day, '500000', '-2000000', '20000000')
                                 }
