@@ -5,7 +5,6 @@ var serverTest = require('./common/TalkSever');
 bot.on('message', function(event) {
     console.log('++++++++++++++++++++++++++++++++++++++');
     console.log('++++++++++++++++++++++++++++++++++++++');
-    console.log(event.message.toJSON());
     console.log(event.message.toString());
     console.log('++++++++++++++++++++++++++++++++++++++');
     console.log('++++++++++++++++++++++++++++++++++++++');
