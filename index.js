@@ -6,7 +6,6 @@ bot.on('message', function(event) {
     console.log('++++++++++++++++++++++++++++++++++++++');
     console.log('++++++++++++++++++++++++++++++++++++++');
     console.log(JSON.stringify(event.message));
-    var contents = event.postData.contents;
     console.log(event.message);
     console.log('++++++++++++++++++++++++++++++++++++++');
     console.log('++++++++++++++++++++++++++++++++++++++');
