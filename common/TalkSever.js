@@ -9,14 +9,49 @@ function talkServer(eventSelect) {
             console.log("=========test1===========");
             return talk.firstTimeEntity('5000000');
         case '2':
-            console.log("=========test2===========");
+            console.log("=========image===========");
             var day = "日月火水木金土".charAt(new Date().getDay());
             return talk.detailedOfWeek('2018-11-09', day, '500000', '-2000000', '20000000');
         case '3':
+            console.log("=========test2===========");
+            // return talk.receiptsOfWeek();
             return {
-                type: "image",
-                originalContentUrl: "https://github.com/lilong921231/line-bot-nodejs/blob/master/public/images/wages",
-                previewImageUrl: "https://github.com/lilong921231/line-bot-nodejs/blob/master/public/images/wages"
+                "type": "flex",
+                "altText": "Flex Message",
+                "contents": {
+                    "type": "bubble",
+                    "direction": "ltr",
+                    "header": {
+                        "type": "box",
+                        "layout": "vertical",
+                        "contents": [
+                            {
+                                "type": "text",
+                                "text": "今週の口座入出金予定",
+                                "align": "start"
+                            },
+                            {
+                                "type": "text",
+                                "text": "をご案内します。"
+                            }
+                        ]
+                    },
+                    "footer": {
+                        "type": "box",
+                        "layout": "horizontal",
+                        "contents": [
+                            {
+                                "type": "button",
+                                "action": {
+                                    "type": "postback",
+                                    "label": "OK",
+                                    "text": "123123",
+                                    "data": "123123"
+                                }
+                            }
+                        ]
+                    }
+                }
             };
     }
 }
