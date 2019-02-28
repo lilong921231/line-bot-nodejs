@@ -18,30 +18,44 @@ function talkServer(eventSelect) {
             var day = "日月火水木金土".charAt(new Date().getDay());
             // return talk.receiptsOfWeek();
             return {
-                type: "flex",
-                altText: "Flex Message",
-                contents: {
-                    type: "bubble",
-                    direction: "ltr",
-                    header: {
-                        type: "box",
-                        layout: "vertical",
-                        contents: [
+                "type": "flex",
+                "altText": "Flex Message",
+                "contents": {
+                    "type": "bubble",
+                    "direction": "ltr",
+                    "header": {
+                        "type": "box",
+                        "layout": "vertical",
+                        "contents": [
                             {
-                                type: "text",
-                                text: "今週の口座入出金予定",
-                                align: "start"
+                                "type": "text",
+                                "text": "今週の口座入出金予定",
+                                "align": "start"
                             },
                             {
-                                type: "text",
-                                text: "をご案内します。"
+                                "type": "text",
+                                "text": "をご案内します。"
                             },
                             {
-                                type: "button",
-                                action: {
-                                    type: "message",
-                                    label: "Button",
-                                    text: "2"
+                                "type": "button",
+                                "action": {
+                                    "type": "message",
+                                    "label": "Button",
+                                    "text": "2"
+                                }
+                            }
+                        ]
+                    },
+                    "footer": {
+                        "type": "box",
+                        "layout": "horizontal",
+                        "contents": [
+                            {
+                                "type": "button",
+                                "action": {
+                                    "type": "message",
+                                    "label": "OK",
+                                    "text": "2"
                                 }
                             }
                         ]
