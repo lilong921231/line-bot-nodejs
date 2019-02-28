@@ -78,14 +78,16 @@ var server = app.listen(process.env.PORT || 3000, function() {
 */
 // -----------------------------------------------------------------------------
 // モジュールのインポート
-const server = require("express")();
-const line = require("@line/bot-sdk"); // Messaging APIのSDKをインポート
+var server = require("express")();
+var line = require("@line/bot-sdk"); // Messaging APIのSDKをインポート
 
 // -----------------------------------------------------------------------------
 // パラメータ設定
-const line_config = {
-    channelAccessToken: process.env.LINE_ACCESS_TOKEN, // 環境変数からアクセストークンをセットしています
-    channelSecret: process.env.LINE_CHANNEL_SECRET // 環境変数からChannel Secretをセットしています
+var line_config = {
+    channelId: "1646638453",
+    channelSecret: "c20aee7e28b0b762cbf5adb9e8a1fa96",
+    channelAccessToken: "noRmAnxXUXdfOEmrasRRY0IF/YPJd+6WF5XXtQ0Nzhl438A+cvFalWwMAOSY1V2hwY3e6xQERfmGBhv2CxuCiJDF80xy4Ryo9N/" +
+        "mMTsd+6z5AZNXJI6fXtL2eCr/gUSIovXzKIDaGBlEDFSaF7BW4gdB04t89/1O/w1cDnyilFU="
 };
 
 // -----------------------------------------------------------------------------
@@ -97,5 +99,29 @@ server.listen(process.env.PORT || 3000);
 // ルーター設定
 server.post('/', line.middleware(line_config), (req, res, next) => {
     res.sendStatus(200);
-    console.log(req.body);
+
+    // すべてのイベント処理のプロミスを格納する配列。
+    let events_processed = [];
+
+    // イベントオブジェクトを順次処理。
+    req.body.events.forEach((event) => {
+        // この処理の対象をイベントタイプがメッセージで、かつ、テキストタイプだった場合に限定。
+        if (event.type === "message" && event.message.type === "text"){
+            // ユーザーからのテキストメッセージが「こんにちは」だった場合のみ反応。
+            if (event.message.text === "こんにちは"){
+                // replyMessage()で返信し、そのプロミスをevents_processedに追加。
+                events_processed.push(bot.replyMessage(event.replyToken, {
+                    type: "text",
+                    text: "これはこれは"
+                }));
+            }
+        }
+    });
+
+    // すべてのイベント処理が終了したら何個のイベントが処理されたか出力。
+    Promise.all(events_processed).then(
+        (response) => {
+            console.log(`${response.length} event(s) processed.`);
+        }
+    );
 });
