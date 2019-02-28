@@ -8,19 +8,19 @@ bot.on('message', function(event) {
     console.log(event.message.data);
     console.log('++++++++++++++++++++++++++++++++++++++');
     console.log('++++++++++++++++++++++++++++++++++++++');
-    let ceshi;
+   /* let ceshi;
 
     if(serverTest.talkServer(event.message.text).contents.header.contents[2].action.text === '2') {
         ceshi = serverTest.talkServer('2');
     } else {
        ceshi = serverTest.talkServer(event.message.text);
     }
+*/
 
 
 
 
-
-        event.reply(ceshi).then(function (data) {
+        event.reply(serverTest.talkServer(event.message.text)).then(function (data) {
         // success
         console.log('=============== server =================');
         console.log(event.message);
