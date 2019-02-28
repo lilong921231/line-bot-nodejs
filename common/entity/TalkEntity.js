@@ -186,7 +186,7 @@ class talkEntity {
                             {
                                 type: "separator",
                                 margin: "xl",
-                                color: "#2A2A2A"
+                                color: "#C5C5C5"
                             },
                             {
                                 type: "text",
@@ -217,7 +217,7 @@ class talkEntity {
                             {
                                 type: "separator",
                                 margin: "xl",
-                                color: "#2A2A2A"
+                                color: "#C5C5C5"
                             },
                             {
                                 type: "text",
