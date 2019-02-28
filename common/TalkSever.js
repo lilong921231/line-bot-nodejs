@@ -16,37 +16,37 @@ function talkServer(eventSelect) {
             console.log("=========test2===========");
             // return talk.receiptsOfWeek();
             return {
-                "type": "flex",
-                "altText": "Flex Message",
-                "contents": {
-                    "type": "bubble",
-                    "direction": "ltr",
-                    "header": {
-                        "type": "box",
-                        "layout": "vertical",
-                        "contents": [
+                type: "flex",
+                altText: "Flex Message",
+                contents: {
+                    type: "bubble",
+                    direction: "ltr",
+                    header: {
+                        type: "box",
+                        layout: "vertical",
+                        contents: [
                             {
-                                "type": "text",
-                                "text": "今週の口座入出金予定",
-                                "align": "start"
+                                type: "text",
+                                text: "今週の口座入出金予定",
+                                align: "start"
                             },
                             {
-                                "type": "text",
-                                "text": "をご案内します。"
+                                type: "text",
+                                text: "をご案内します。"
                             }
                         ]
                     },
-                    "footer": {
-                        "type": "box",
-                        "layout": "horizontal",
-                        "contents": [
+                    footer: {
+                        type: "box",
+                        layout: "horizontal",
+                        contents: [
                             {
-                                "type": "button",
-                                "action": {
-                                    "type": "postback",
-                                    "label": "OK",
-                                    "text": "123123",
-                                    "data": "67890"
+                                type: "button",
+                                action: {
+                                    type: "postback",
+                                    label: "OK",
+                                    text: "123123",
+                                    data: "67890"
                                 }
                             }
                         ]
