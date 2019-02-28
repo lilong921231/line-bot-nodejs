@@ -46,7 +46,7 @@ function talkServer(eventSelect) {
                                     "type": "postback",
                                     "label": "OK",
                                     "text": "123123",
-                                    "data": "123123"
+                                    "data": "67890"
                                 }
                             }
                         ]
