@@ -35,24 +35,20 @@ function talkServer(eventSelect) {
                             {
                                 type: "text",
                                 text: "をご案内します。"
-                            }
-                        ]
-                    },
-                    footer: {
-                        type: "box",
-                        layout: "horizontal",
-                        contents: [
+                            },
                             {
                                 type: "button",
                                 action: {
-                                    type: "message",
-                                    label: "OK",
-                                    text: talk.detailedOfWeek('2018-11-09', day, '500000', '-2000000', '20000000')
+                                    type: "postback",
+                                    label: "Button",
+                                    text: "2",
+                                    data: talk.detailedOfWeek('2018-11-09', day, '500000', '-2000000', '20000000')
                                 }
                             }
                         ]
                     }
                 }
+            }
             };
     }
 }
