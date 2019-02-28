@@ -42,7 +42,6 @@ function talkServer(eventSelect) {
                                     type: "message",
                                     label: "OK",
                                     text: "2",
-                                    data: "action=buy&itemid=111"
                                     // contents: talk.detailedOfWeek('2018-11-09', day, '500000', '-2000000', '20000000')
                                 }
                             }
