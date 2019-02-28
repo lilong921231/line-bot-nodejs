@@ -39,49 +39,9 @@ function talkServer(eventSelect) {
                             {
                                 type: "button",
                                 action: {
-                                    type: "postback",
+                                    type: "message",
                                     label: "Button",
-                                    text: {
-                                        type: "flex",
-                                        altText: "Flex Message",
-                                        contents: {
-                                            type: "bubble",
-                                            direction: "ltr",
-                                            header: {
-                                                type: "box",
-                                                layout: "vertical",
-                                                contents: [
-                                                    {
-                                                        type: "text",
-                                                        text: "おはようございます。 ",
-                                                        align: "start",
-                                                        gravity: "center"
-                                                    },
-                                                    {
-                                                        type: "text",
-                                                        text: "今日は月曜日ですね。"
-                                                    },
-                                                    {
-                                                        type: "text",
-                                                        text: " 今日からまた新しい "
-                                                    },
-                                                    {
-                                                        type: "text",
-                                                        text: "一週間の始まりです。 "
-                                                    },
-                                                    {
-                                                        type: "text",
-                                                        text: "現在の口座残高 "
-                                                    },
-                                                    {
-                                                        type: "text",
-                                                        text: "は6000000円です。"
-                                                    }
-                                                ]
-                                            }
-                                        }
-                                    },
-                                    data: "1",
+                                    text: "2"
                                 }
                             }
                         ]
