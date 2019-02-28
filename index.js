@@ -5,11 +5,10 @@ var serverTest = require('./common/TalkSever');
 bot.on('message', function(event) {
     console.log('++++++++++++++++++++++++++++++++++++++');
     console.log('++++++++++++++++++++++++++++++++++++++');
-    console.log(event.message.contents.header.contents[2].action.data);
+    console.log(event.message);
     console.log('++++++++++++++++++++++++++++++++++++++');
     console.log('++++++++++++++++++++++++++++++++++++++');
    /* let ceshi;
-
     if(serverTest.talkServer(event.message.text).contents.header.contents[2].action.text === '2') {
         ceshi = serverTest.talkServer('2');
     } else {
