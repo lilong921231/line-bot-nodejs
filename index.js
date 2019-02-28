@@ -3,7 +3,11 @@ var bot = require('./line.config');
 var serverTest = require('./common/TalkSever');
 
 bot.on('message', function(event) {
-    console.log(event.message);
+    console.log('++++++++++++++++++++++++++++++++++++++');
+    console.log('++++++++++++++++++++++++++++++++++++++');
+    console.log(event.message.button);
+    console.log('++++++++++++++++++++++++++++++++++++++');
+    console.log('++++++++++++++++++++++++++++++++++++++');
 
     event.reply(serverTest.talkServer(event.message.text)).then(function (data) {
         // success
