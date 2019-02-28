@@ -48,9 +48,9 @@ function talkServer(eventSelect) {
                         ]
                     }
                 }
-            }
             };
     }
+
 }
 
 module.exports = {
