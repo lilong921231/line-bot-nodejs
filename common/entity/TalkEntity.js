@@ -13,7 +13,7 @@ class talkEntity {
         if(day < 10){
             day = "0" + day;
         }
-        return Dates.getFullYear() + "年　" + mon + "月" + day + "日";
+        return Dates.getFullYear() + "年 " + mon + "月" + day + "日";
     }
 
     /**
