@@ -42,7 +42,7 @@ function talkServer(eventSelect) {
                                     type: "postback",
                                     label: "Button",
                                     text: "2",
-                                    data: talk.detailedOfWeek('2018-11-09', day, '500000', '-2000000', '20000000')
+                                    data: "1",
                                 }
                             }
                         ]
