@@ -5,7 +5,7 @@ var serverTest = require('./common/TalkSever');
 bot.on('message', function(event) {
     console.log('++++++++++++++++++++++++++++++++++++++');
     console.log('++++++++++++++++++++++++++++++++++++++');
-    console.log(event.message);
+    console.log(event.message.content);
     console.log('++++++++++++++++++++++++++++++++++++++');
     console.log('++++++++++++++++++++++++++++++++++++++');
    /* let ceshi;
@@ -16,9 +16,6 @@ bot.on('message', function(event) {
        ceshi = serverTest.talkServer(event.message.text);
     }
 */
-
-
-
 
         event.reply(serverTest.talkServer(event.message.text)).then(function (data) {
         // success
