@@ -14,11 +14,8 @@ bot.on('message', function(event) {
         serverTest.talkServer(callbalk).mondayReceipts
     ];
 
-
-    for (let i = 0; i < array.length; i++) {
-
-        if(i !== 0) {
-
+    Promise
+        .then(function(){
             setTimeout(function() {
                 event.reply(array[i]).then(function (data) {
                     console.log('=============JSON ' + i + '================');
@@ -29,29 +26,8 @@ bot.on('message', function(event) {
                     console.log(error);
                     console.log('=============== error =================');
                 })
-            }, 1000 * 10);
-        } else {
-            event.reply(array[i]).then(function (data) {
-                console.log('=============JSON ' + i + '================');
-                console.log(JSON.stringify(array[i]));
-                console.log('=============JSON end================');
-            }).catch(function (error) {
-                // error
-                console.log(error);
-                console.log('=============== error =================');
-            });
-        }
-    }
-
-
-
-
-
-
-
-    console.log(array.length);
-
-
+            }, 1000)
+        })
 
 });
 
