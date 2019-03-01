@@ -13,11 +13,10 @@ bot.on('message', function(event) {
         serverTest.talkServer(callbalk).mondayFirstTime,
         serverTest.talkServer(callbalk).mondayReceipts
     ];
-    console.log(array.length);
-    for (var i = 0; i < array.length; i++) {
+    for (var i = 0; i <= array.length; i++) {
         event.reply(array[i]).then(function (data) {
             console.log('=============JSON ' + i + '================');
-            console.log(JSON.stringify(array[i]));
+            console.log(JSON.stringify(array[i]).toString());
             console.log('=============JSON end================');
         }).catch(function (error) {
             // error
