@@ -8,19 +8,15 @@ bot.on('message', function(event) {
     console.log(JSON.stringify(event));
     console.log('++++++++++++++++++++++++++++++++++++++');
     console.log('++++++++++++++++++++++++++++++++++++++');
-    let callbalk;
+    let callbalk = event.message.text;
     let array = [
-        serverTest.talkServer(event.message.text).mondayFirstTime,
-        serverTest.talkServer(event.message.text).mondayReceipts
+        serverTest.talkServer(callbalk).mondayFirstTime,
+        serverTest.talkServer(callbalk).mondayReceipts
     ];
 
     for (var i = 0; i < array.length; i++) {
         event.reply(array[i]).then(function (data) {
-            // success
-            // console.log('=============== server =================');
-            //     console.log('==============postback=============');
-            //     console.log(event.postback.data);
-            console.log('=============JSON================');
+            console.log('=============JSON ' + i + '================');
             console.log(JSON.stringify(array[i]));
             console.log('=============JSON end================');
         }).catch(function (error) {
