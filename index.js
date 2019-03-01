@@ -16,7 +16,7 @@ bot.on('message', function(event) {
     for (var i = 0; i <= array.length; i++) {
         event.reply(array[i]).then(function (data) {
             console.log('=============JSON ' + i + '================');
-            console.log(JSON.stringify(array[i]).toString());
+            console.log(JSON.stringify(array[i]));
             console.log('=============JSON end================');
         }).catch(function (error) {
             // error
