@@ -9,12 +9,11 @@ bot.on('message', function(event) {
     console.log('++++++++++++++++++++++++++++++++++++++');
     console.log('++++++++++++++++++++++++++++++++++++++');
     let callbalk;
-    let array = [];
-    serverTest.talkServer(event.message.text).forEach(
-        function(item, index){
-            array[index] = item;
-        }
-    );
+    let array = [
+        serverTest.talkServer(event.message.text).mondayFirstTime,
+        serverTest.talkServer(event.message.text).mondayReceipts
+    ];
+
     for (var i = 0; i < array.length; i++) {
         event.reply(array[i]).then(function (data) {
             // success
