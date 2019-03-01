@@ -37,7 +37,7 @@ bot.on('postback', function (event) {
     console.log(JSON.stringify(event.postback));
     console.log('=============postback JSON end=============');
 
-    event.reply(serverTest.talkServer(text))
+    event.reply(serverTest.talkServer(event.postback.data))
         .then(function (data) {
             console.log('=============postback=============');
             console.log(JSON.stringify(serverTest.talkServer(event.postback.data)));
