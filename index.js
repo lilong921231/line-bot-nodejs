@@ -18,7 +18,7 @@ bot.on('message', function(event) {
     for (let i = 0; i < array.length; i++) {
 
         if(i !== 0) {
-            setTimeout(
+            setTimeout(function() {
                 event.reply(array[i]).then(function (data) {
                     console.log('=============JSON ' + i + '================');
                     console.log(JSON.stringify(array));
@@ -27,7 +27,8 @@ bot.on('message', function(event) {
                     // error
                     console.log(error);
                     console.log('=============== error =================');
-                }), 2000);
+                })
+            }, 2000);
 
         } else {
             event.reply(array[i]).then(function (data) {
