@@ -36,10 +36,16 @@ bot.on('postback', function (event) {
 
     console.log(JSON.stringify(event));
     console.log('=============postback JSON end=============');
-    event.reply(serverTest.talkServer(event))
+
+    var text;
+
+    if (event.postback.data === '2') {
+        text = 2;
+    }
+    event.reply(serverTest.talkServer(text))
         .then(function (data) {
             console.log('=============postback=============');
-            console.log(JSON.stringify(serverTest.talkServer(event)));
+            console.log(JSON.stringify(serverTest.talkServer(text)));
     }).catch(function(error) {
         console.log('==============error=============')
         console.log(error);
