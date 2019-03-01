@@ -5,11 +5,7 @@ var serverTest = require('./common/TalkSever');
 bot.on('message', function(event) {
     console.log('++++++++++++++++++++++++++++++++++++++');
     console.log('++++++++++++++++++++++++++++++++++++++');
-    // console.log(JSON.stringify(event));
-    if (postback !== null || postback !== undefined) {
-        console.log(event);
-        console.log(JSON.stringify(event));
-    }
+    console.log(JSON.stringify(event));
     console.log('++++++++++++++++++++++++++++++++++++++');
     console.log('++++++++++++++++++++++++++++++++++++++');
    /* let ceshi;
