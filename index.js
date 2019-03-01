@@ -2,37 +2,38 @@ var express = require('express');
 var bot = require('./line.config');
 var serverTest = require('./common/TalkSever');
 
-bot.on('message', function(event) {
-    console.log('++++++++++++++++++++++++++++++++++++++');
-    console.log('++++++++++++++++++++++++++++++++++++++');
-    // console.log(JSON.stringify(event));
-    if (event.postback !== null || event.postback !== undefined) {
-        console.log(event);
-        console.log(JSON.stringify(event));
-    }
-    console.log('++++++++++++++++++++++++++++++++++++++');
-    console.log('++++++++++++++++++++++++++++++++++++++');
-   /* let ceshi;
-    if(serverTest.talkServer(event.message.text).contents.header.contents[2].action.text === '2') {
-        ceshi = serverTest.talkServer('2');
-    } else {
-       ceshi = serverTest.talkServer(event.message.text);
-    }
-*/
-
-        event.reply(serverTest.talkServer(event.message.text)).then(function (data) {
-        // success
-        // console.log('=============== server =================');
-        //     console.log('==============postback=============');
-        //     console.log(event.postback.data);
-        console.log('=============JSON================');
-        console.log(JSON.stringify(serverTest.talkServer(event.message.text)));
-            console.log('=============JSON end================');
-    }).catch(function (error) {
-        // error
-        console.log(error);
-        console.log('=============== error =================');
-    });
+bot.on('message', function(e) {
+    doPost(e);
+//     console.log('++++++++++++++++++++++++++++++++++++++');
+//     console.log('++++++++++++++++++++++++++++++++++++++');
+//     // console.log(JSON.stringify(event));
+//     if (postback !== null || postback !== undefined) {
+//         console.log(event);
+//         console.log(JSON.stringify(event));
+//     }
+//     console.log('++++++++++++++++++++++++++++++++++++++');
+//     console.log('++++++++++++++++++++++++++++++++++++++');
+//    /* let ceshi;
+//     if(serverTest.talkServer(event.message.text).contents.header.contents[2].action.text === '2') {
+//         ceshi = serverTest.talkServer('2');
+//     } else {
+//        ceshi = serverTest.talkServer(event.message.text);
+//     }
+// */
+//
+//         event.reply(serverTest.talkServer(event.message.text)).then(function (data) {
+//         // success
+//         // console.log('=============== server =================');
+//         //     console.log('==============postback=============');
+//         //     console.log(event.postback.data);
+//         console.log('=============JSON================');
+//         console.log(JSON.stringify(serverTest.talkServer(event.message.text)));
+//             console.log('=============JSON end================');
+//     }).catch(function (error) {
+//         // error
+//         console.log(error);
+//         console.log('=============== error =================');
+//     });
 });
 
 const app = express();
