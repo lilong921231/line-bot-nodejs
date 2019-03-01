@@ -5,10 +5,10 @@ var serverTest = require('./common/TalkSever');
 bot.on('message', function(event) {
     console.log('++++++++++++++++++++++++++++++++++++++');
     console.log('++++++++++++++++++++++++++++++++++++++');
-    console.log(JSON.stringify(event));
+    // console.log(JSON.stringify(event));
     if (event.postback !== null || event.postback !== undefined) {
-        console.log(event.postback);
-        console.log(JSON.stringify(event.postback));
+        console.log(event);
+        console.log(JSON.stringify(event));
     }
     console.log('++++++++++++++++++++++++++++++++++++++');
     console.log('++++++++++++++++++++++++++++++++++++++');
@@ -23,8 +23,8 @@ bot.on('message', function(event) {
         event.reply(serverTest.talkServer(event.message.text)).then(function (data) {
         // success
         // console.log('=============== server =================');
-            console.log('==============postback=============');
-            console.log(event.postback.data);
+        //     console.log('==============postback=============');
+        //     console.log(event.postback.data);
         console.log('=============JSON================');
         console.log(JSON.stringify(serverTest.talkServer(event.message.text)));
             console.log('=============JSON end================');
