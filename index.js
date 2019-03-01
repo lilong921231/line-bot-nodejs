@@ -14,21 +14,26 @@ bot.on('message', function(event) {
         serverTest.talkServer(callbalk).mondayReceipts
     ];
 
-    Promise
-        .then(function(){
-            setTimeout(function() {
-                event.reply(array[i]).then(function (data) {
-                    console.log('=============JSON ' + i + '================');
-                    console.log(JSON.stringify(array[i]));
-                    console.log('=============JSON end================');
-                }).catch(function (error) {
-                    // error
-                    console.log(error);
-                    console.log('=============== error =================');
-                })
-            }, 1000)
-        })
+    var ceshi = new Promise(function (resolve, reject) {
+        setTimeout(function() {
+            event.reply(array[i]).then(function (data) {
+                console.log('=============JSON ' + i + '================');
+                console.log(JSON.stringify(array[i]));
+                console.log('=============JSON end================');
+            }).catch(function (error) {
+                // error
+                console.log(error);
+                console.log('=============== error =================');
+            })
+        }, 1000)
+    });
 
+    ceshi.then(function(){
+        console.log('ok?');
+    }, function (err) {
+        console.log(err);
+
+    })
 });
 
 bot.on('postback', function (event) {
