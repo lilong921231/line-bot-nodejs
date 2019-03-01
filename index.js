@@ -19,7 +19,7 @@ bot.on('message', function(event) {
 
         if(i !== 0) {
 
-           var item =  setTimeout(function() {
+            setTimeout(function() {
                 event.reply(array[i]).then(function (data) {
                     console.log('=============JSON ' + i + '================');
                     console.log(JSON.stringify(array[i]));
