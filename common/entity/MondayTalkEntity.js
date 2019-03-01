@@ -1,6 +1,6 @@
 
 
-class talkEntity {
+class mondayTalkEntity {
 
     AddDate(date, addDays){
         var Dates = new Date(date);
@@ -72,14 +72,14 @@ class talkEntity {
     receiptsOfWeek() {
         return {
             type: "flex",
-                altText: "Flex Message",
-                contents: {
+            altText: "Flex Message",
+            contents: {
                 type: "bubble",
-                    direction: "ltr",
-                    header: {
+                direction: "ltr",
+                header: {
                     type: "box",
-                        layout: "vertical",
-                        contents: [
+                    layout: "vertical",
+                    contents: [
                         {
                             type: "text",
                             text: "今週の口座入出金予定",
@@ -88,25 +88,19 @@ class talkEntity {
                         {
                             type: "text",
                             text: "をご案内します。"
-                        }
-                    ]
-                },
-                footer: {
-                    type: "box",
-                        layout: "horizontal",
-                        contents: [
+                        },
                         {
                             type: "button",
                             action: {
-                                type: "uri",
+                                type: "postback",
                                 label: "OK",
-                                uri: "https://linecorp.com"
+                                data: "2"
                             }
                         }
                     ]
                 }
             }
-        }
+        };
     }
 
     /**
@@ -439,4 +433,4 @@ class talkEntity {
     }
 }
 
-module.exports = talkEntity;
+module.exports = mondayTalkEntity;
