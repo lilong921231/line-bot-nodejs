@@ -8,19 +8,24 @@ bot.on('message', function(event) {
     console.log(JSON.stringify(event));
     console.log('++++++++++++++++++++++++++++++++++++++');
     console.log('++++++++++++++++++++++++++++++++++++++');
-        event.reply(serverTest.talkServer(event.message.text)).then(function (data) {
-        // success
-        // console.log('=============== server =================');
-        //     console.log('==============postback=============');
-        //     console.log(event.postback.data);
-        console.log('=============JSON================');
-        console.log(JSON.stringify(serverTest.talkServer(event.message.text)));
-            console.log('=============JSON end================');
-    }).catch(function (error) {
-        // error
-        console.log(error);
-        console.log('=============== error =================');
-    });
+    serverTest.talkServer(event.message.text).forEach(
+        function(item, index){
+            event.reply(item).then(function (data) {
+                // success
+                // console.log('=============== server =================');
+                //     console.log('==============postback=============');
+                //     console.log(event.postback.data);
+                console.log('=============JSON================');
+                console.log(JSON.stringify(serverTest.talkServer(event.message.text)));
+                console.log('=============JSON end================');
+            }).catch(function (error) {
+                // error
+                console.log(error);
+                console.log('=============== error =================');
+            });
+        }
+    );
+
 });
 
 bot.on('postback', function (event) {
