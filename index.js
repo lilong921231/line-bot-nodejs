@@ -31,6 +31,21 @@ bot.on('message', function(event) {
     });
 });
 
+bot.on('postback', function (event) {
+    console.log('=============postback JSON=============');
+
+    console.log(JSON.stringify(event));
+    console.log('=============postback JSON end=============');
+    event.reply(serverTest.talkServer(event))
+        .then(function (data) {
+            console.log('=============postback=============');
+            console.log(JSON.stringify(serverTest.talkServer(event)));
+    }).catch(function(error) {
+        console.log('==============error=============')
+        console.log(error);
+    })
+});
+
 const app = express();
 const linebotParser = bot.parser();
 app.post('/', linebotParser);
