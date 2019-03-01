@@ -8,23 +8,28 @@ bot.on('message', function(event) {
     console.log(JSON.stringify(event));
     console.log('++++++++++++++++++++++++++++++++++++++');
     console.log('++++++++++++++++++++++++++++++++++++++');
+    let callbalk;
+    let array = [];
     serverTest.talkServer(event.message.text).forEach(
         function(item, index){
-            event.reply(item).then(function (data) {
-                // success
-                // console.log('=============== server =================');
-                //     console.log('==============postback=============');
-                //     console.log(event.postback.data);
-                console.log('=============JSON================');
-                console.log(JSON.stringify(serverTest.talkServer(event.message.text)));
-                console.log('=============JSON end================');
-            }).catch(function (error) {
-                // error
-                console.log(error);
-                console.log('=============== error =================');
-            });
+            array[index] = item;
         }
     );
+    for (var i = 0; i < array.length; i++) {
+        event.reply(array[i]).then(function (data) {
+            // success
+            // console.log('=============== server =================');
+            //     console.log('==============postback=============');
+            //     console.log(event.postback.data);
+            console.log('=============JSON================');
+            console.log(JSON.stringify(serverTest.talkServer(event.message.text)));
+            console.log('=============JSON end================');
+        }).catch(function (error) {
+            // error
+            console.log(error);
+            console.log('=============== error =================');
+        });
+    }
 
 });
 
