@@ -2,46 +2,147 @@ var express = require('express');
 var bot = require('./line.config');
 var serverTest = require('./common/TalkSever');
 
-bot.on('message', function(event) {
-    console.log('++++++++++++++++++++++++++++++++++++++');
-    console.log('++++++++++++++++++++++++++++++++++++++');
-    console.log(JSON.stringify(event));
-    console.log(event);
-    console.log('++++++++++++++++++++++++++++++++++++++');
-    console.log('++++++++++++++++++++++++++++++++++++++');
-   /* let ceshi;
-    if(serverTest.talkServer(event.message.text).contents.header.contents[2].action.text === '2') {
-        ceshi = serverTest.talkServer('2');
-    } else {
-       ceshi = serverTest.talkServer(event.message.text);
+// bot.on('message', function(event) {
+//     console.log('++++++++++++++++++++++++++++++++++++++');
+//     console.log('++++++++++++++++++++++++++++++++++++++');
+//     console.log(JSON.stringify(event));
+//     console.log(event);
+//     console.log('++++++++++++++++++++++++++++++++++++++');
+//     console.log('++++++++++++++++++++++++++++++++++++++');
+//    /* let ceshi;
+//     if(serverTest.talkServer(event.message.text).contents.header.contents[2].action.text === '2') {
+//         ceshi = serverTest.talkServer('2');
+//     } else {
+//        ceshi = serverTest.talkServer(event.message.text);
+//     }
+// */
+//
+//         event.reply(serverTest.talkServer(event.message.text)).then(function (data) {
+//         // success
+//         console.log('=============== server =================');
+//         console.log(event.message);
+//         console.log(serverTest.talkServer(event.message.text));
+//
+//         console.log('=============JSON================');
+//         console.log(JSON.stringify(serverTest.talkServer(event.message.text)));
+//             console.log('=============JSON end================');
+//     }).catch(function (error) {
+//         // error
+//         console.log(error);
+//         console.log('=============== error =================');
+//     });
+// });
+//
+// const app = express();
+// const linebotParser = bot.parser();
+// app.post('/', linebotParser);
+//
+// //express port:3000
+// var server = app.listen(process.env.PORT || 3000, function() {
+//     var port = server.address().port;
+//     console.log("App now running on port:", port);
+// });
+//
+
+
+
+
+var CHANNEL_ACCESS_TOKEN = "noRmAnxXUXdfOEmrasRRY0IF/YPJd+6WF5XXtQ0Nzhl438A+cvFalWwMAOSY1V2hwY3e6xQERfmGBhv2CxuCiJDF80xy4Ryo9N/" +
+    "mMTsd+6z5AZNXJI6fXtL2eCr/gUSIovXzKIDaGBlEDFSaF7BW4gdB04t89/1O/w1cDnyilFU=";
+
+function doPost(e) {
+    var contents = e.postData.contents;
+    var obj = JSON.parse(contents);
+    var events = obj["events"];
+    for (var i = 0; i < events.length; i++) {
+        if (events[i].type === "message") {
+            reply_message(events[i]);
+        } else if (events[i].type === "postback") {
+            post_back(events[i]);
+        }
     }
-*/
+}
 
-        event.reply(serverTest.talkServer(event.message.text)).then(function (data) {
-        // success
-        console.log('=============== server =================');
-        console.log(event.message);
-        console.log(serverTest.talkServer(event.message.text));
+function reply_message(e) {
+    var input_text = e.message.text;
+    if (input_text === "button") {
+        var postData = {
+            "replyToken": e.replyToken,
+            "messages": [{
+                "type": "template",
+                "altText": "select",
+                "template": {
+                    "type": "buttons",
+                    "thumbnailImageUrl": "https://~.png",
+                    "title": "Menu",
+                    "text": "Please select",
+                    "actions": [{
+                        "type": "postback",
+                        "label": "postback",
+                        "data": "postback selected"
+                    },
+                        {
+                            "type": "message",
+                            "label": "message",
+                            "text": "text:message"
+                        },
+                        {
+                            "type": "uri",
+                            "label": "uri",
+                            "uri": "https://linecorp.com"
+                        },
+                        {
+                            "type": "datetimepicker",
+                            "label": "datetimepicker",
+                            "data": "datetimepicker selected",
+                            "mode": "datetime",
+                            "initial": "2017-10-25T00:00",
+                            "max": 　 "2017-12-31T23:59",
+                            "min": "2017-01-01T00:00"
+                        }
+                    ]
+                }
+            }]
+        };
+    }
+    fetch_data(postData);
+}
 
-        console.log('=============JSON================');
-        console.log(JSON.stringify(serverTest.talkServer(event.message.text)));
-            console.log('=============JSON end================');
-    }).catch(function (error) {
-        // error
-        console.log(error);
-        console.log('=============== error =================');
-    });
-});
+function post_back(e) {
+    var data = e.postback.data;
+    var replay_text = "";
+    if (data === "postback selected") {
+        replay_text = data;
+    } else if (data === "datetimepicker selected") {
+        replay_text = data + "\n" + e.postback.params['datetime'];
+    }
 
-const app = express();
-const linebotParser = bot.parser();
-app.post('/', linebotParser);
+    var postData = {
+        "replyToken": e.replyToken,
+        "messages": [{
+            "type": "text",
+            "text": replay_text + "\n" + JSON.stringify(e.postback)
+        }]
+    };
+    fetch_data(postData);
+}
 
-//express port:3000
-var server = app.listen(process.env.PORT || 3000, function() {
-    var port = server.address().port;
-    console.log("App now running on port:", port);
-});
+function fetch_data(postData) {
+    var options = {
+        "method": "post",
+        "headers": {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " + CHANNEL_ACCESS_TOKEN
+        },
+        "payload": JSON.stringify(postData)
+    };
+    UrlFetchApp.fetch("https://api.line.me/v2/bot/message/reply", options);
+}
+
+
+
+
+
 // -----------------------------------------------------------------------------
 // モジュールのインポート
 /*
