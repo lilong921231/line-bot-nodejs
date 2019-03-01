@@ -29,8 +29,7 @@ bot.on('message', function(event) {
                     console.log(error);
                     console.log('=============== error =================');
                 })
-            }, 2000);
-            clearTimeout(item);
+            }, 1000 * 10);
         } else {
             event.reply(array[i]).then(function (data) {
                 console.log('=============JSON ' + i + '================');
