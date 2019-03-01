@@ -96,9 +96,9 @@ function reply_message(e) {
                             "label": "datetimepicker",
                             "data": "datetimepicker selected",
                             "mode": "datetime",
-                            "initial": "2017-10-25T00:00",
-                            "max": 　 "2017-12-31T23:59",
-                            "min": "2017-01-01T00:00"
+                            "initial": "2019-03-01T09:05",
+                            "max": 　 "2019-03-01T09:05",
+                            "min": "2019-03-01T09:05"
                         }
                     ]
                 }
