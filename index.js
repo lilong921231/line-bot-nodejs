@@ -13,19 +13,44 @@ bot.on('message', function(event) {
         serverTest.talkServer(callbalk).mondayFirstTime,
         serverTest.talkServer(callbalk).mondayReceipts
     ];
+
+
+    for (let i = 0; i < array.length; i++) {
+
+        if(i !== 0) {
+            setTimeout(
+                event.reply(array[i]).then(function (data) {
+                    console.log('=============JSON ' + i + '================');
+                    console.log(JSON.stringify(array));
+                    console.log('=============JSON end================');
+                }).catch(function (error) {
+                    // error
+                    console.log(error);
+                    console.log('=============== error =================');
+                }), 2000);
+
+        } else {
+            event.reply(array[i]).then(function (data) {
+                console.log('=============JSON ' + i + '================');
+                console.log(JSON.stringify(array));
+                console.log('=============JSON end================');
+            }).catch(function (error) {
+                // error
+                console.log(error);
+                console.log('=============== error =================');
+            });
+        }
+    }
+
+
+
+
+
+
+
     console.log(array.length);
-    event.reply(array).then(function (data) {
-        console.log('=============JSON ' + i + '================');
-        console.log(JSON.stringify(array));
-        console.log('=============JSON end================');
-    }).catch(function (error) {
-        // error
-        console.log(error);
-        console.log('=============== error =================');
-    });
-    // for (let i = 0; i < array.length; i++) {
-    //
-    // }
+
+
 
 });
 
