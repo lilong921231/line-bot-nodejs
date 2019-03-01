@@ -6,8 +6,9 @@ bot.on('message', function(event) {
     console.log('++++++++++++++++++++++++++++++++++++++');
     console.log('++++++++++++++++++++++++++++++++++++++');
     console.log(JSON.stringify(event));
-    if (event.postback.data !== null || event.postback.data !== undefined) {
-        console.log(event.postback.data);
+    if (event.postback.contents !== null || event.postback.contents !== undefined) {
+        console.log(event.postback.contents);
+        console.log(JSON.stringify(event.postback.contents));
     }
     console.log('++++++++++++++++++++++++++++++++++++++');
     console.log('++++++++++++++++++++++++++++++++++++++');
