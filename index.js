@@ -21,7 +21,7 @@ bot.on('message', function(event) {
             setTimeout(function() {
                 event.reply(array[i]).then(function (data) {
                     console.log('=============JSON ' + i + '================');
-                    console.log(JSON.stringify(array));
+                    console.log(JSON.stringify(array[i]));
                     console.log('=============JSON end================');
                 }).catch(function (error) {
                     // error
@@ -33,7 +33,7 @@ bot.on('message', function(event) {
         } else {
             event.reply(array[i]).then(function (data) {
                 console.log('=============JSON ' + i + '================');
-                console.log(JSON.stringify(array));
+                console.log(JSON.stringify(array[i]));
                 console.log('=============JSON end================');
             }).catch(function (error) {
                 // error
