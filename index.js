@@ -8,13 +8,6 @@ bot.on('message', function(event) {
     console.log(JSON.stringify(event));
     console.log('++++++++++++++++++++++++++++++++++++++');
     console.log('++++++++++++++++++++++++++++++++++++++');
-   /* let ceshi;
-    if(serverTest.talkServer(event.message.text).contents.header.contents[2].action.text === '2') {
-        ceshi = serverTest.talkServer('2');
-    } else {
-       ceshi = serverTest.talkServer(event.message.text);
-    }
-*/
         event.reply(serverTest.talkServer(event.message.text)).then(function (data) {
         // success
         // console.log('=============== server =================');
@@ -36,10 +29,10 @@ bot.on('postback', function (event) {
     console.log(JSON.stringify(event.postback));
     console.log('=============postback JSON end=============');
 
-    event.reply(serverTest.talkServer(event.postback.data))
+    event.reply(serverTest.talkPostback(event.postback.data))
         .then(function (data) {
             console.log('=============postback=============');
-            console.log(JSON.stringify(serverTest.talkServer(event.postback.data)));
+            console.log(JSON.stringify(serverTest.talkPostback(event.postback.data)));
     }).catch(function(error) {
         console.log('==============error=============')
         console.log(error);

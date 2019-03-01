@@ -94,7 +94,7 @@ class mondayTalkEntity {
                             action: {
                                 type: "postback",
                                 label: "OK",
-                                data: "2"
+                                data: "OK"
                             }
                         }
                     ]
