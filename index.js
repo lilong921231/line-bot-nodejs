@@ -2,7 +2,7 @@ var express = require('express');
 var bot = require('./line.config');
 var serverTest = require('./common/TalkSever');
 
-bot.on('type', function(event) {
+bot.on('message', function(event) {
     console.log('++++++++++++++++++++++++++++++++++++++');
     console.log('++++++++++++++++++++++++++++++++++++++');
     // console.log(JSON.stringify(event));
