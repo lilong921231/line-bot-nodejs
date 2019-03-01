@@ -6,7 +6,9 @@ bot.on('message', function(event) {
     console.log('++++++++++++++++++++++++++++++++++++++');
     console.log('++++++++++++++++++++++++++++++++++++++');
     console.log(JSON.stringify(event));
-    console.log(event.postback.data);
+    if (event.postback.data !== null || event.postback.data !== undefined) {
+        console.log(event.postback.data);
+    }
     console.log('++++++++++++++++++++++++++++++++++++++');
     console.log('++++++++++++++++++++++++++++++++++++++');
    /* let ceshi;
