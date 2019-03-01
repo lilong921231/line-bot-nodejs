@@ -21,7 +21,7 @@ bot.on('message', function(event) {
             //     console.log('==============postback=============');
             //     console.log(event.postback.data);
             console.log('=============JSON================');
-            console.log(JSON.stringify(serverTest.talkServer(event.message.text)));
+            console.log(JSON.stringify(array[i]));
             console.log('=============JSON end================');
         }).catch(function (error) {
             // error
