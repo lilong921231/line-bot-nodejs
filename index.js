@@ -13,7 +13,7 @@ bot.on('message', function(event) {
         serverTest.talkServer(callbalk).mondayFirstTime,
         serverTest.talkServer(callbalk).mondayReceipts
     ];
-    event.reply(array).then(function (data) {
+    event.reply(serverTest.talkServer(callbalk).mondayFirstTime).then(function (data) {
         console.log('=============JSON================');
         console.log(JSON.stringify(array));
         console.log('=============JSON end================');
