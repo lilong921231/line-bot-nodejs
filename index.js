@@ -31,7 +31,7 @@ bot.on('message', function(event) {
 
     event.reply(array).then(function (data) {
         console.log('=============JSON================');
-        console.log(JSON.stringify(arrayWed);
+        console.log(JSON.stringify(array));
         console.log('=============JSON end================');
     }).catch(function (error) {
         // error
