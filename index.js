@@ -18,7 +18,7 @@ bot.on('message', function(event) {
 
     event.reply(wedSever.wedTalkPostback(callbalk)).then(function (data) {
         console.log('=============JSON================');
-        console.log(JSON.stringify(array));
+        console.log(JSON.stringify(wedSever.wedTalkPostback(callbalk)));
         console.log('=============JSON end================');
     }).catch(function (error) {
         // error
