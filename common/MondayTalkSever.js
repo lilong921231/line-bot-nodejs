@@ -1,5 +1,4 @@
 var talkEntity = require('./entity/MondayTalkEntity');
-// var ceshi = require('../public/images/wages.png');
 var talk = new talkEntity();
 
 
