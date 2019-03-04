@@ -11,10 +11,10 @@ bot.on('message', function(event) {
     console.log('++++++++++++++++++++++++++++++++++++++');
     console.log('++++++++++++++++++++++++++++++++++++++');
     let callbalk = event.message.text;
-    let array = [
-        serverTest.talkServer(callbalk).mondayFirstTime,
-        serverTest.talkServer(callbalk).mondayReceipts
-    ];
+    // let array = [
+    //     serverTest.talkServer(callbalk).mondayFirstTime,
+    //     serverTest.talkServer(callbalk).mondayReceipts
+    // ];
 
     event.reply(wedSever.wedTalkPostback(callbalk)).then(function (data) {
         console.log('=============JSON================');
