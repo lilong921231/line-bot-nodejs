@@ -11,20 +11,25 @@ bot.on('message', function(event) {
     console.log('++++++++++++++++++++++++++++++++++++++');
     console.log('++++++++++++++++++++++++++++++++++++++');
     let callbalk = event.message.text;
-    let array = [
-        serverTest.talkServer(callbalk).mondayFirstTime,
-        serverTest.talkServer(callbalk).mondayReceipts
-    ];
+    let array;
+    if(callbalk === '1') {
 
-    let arrayWed = [
-        wedSever.wedTalkSever(callbalk).wedRent,
-        wedSever.wedTalkSever(callbalk).wedLoan,
-        wedSever.wedTalkSever(callbalk).wedTenYears,
-        wedSever.wedTalkSever(callbalk).wedPayment,
-        wedSever.wedTalkSever(callbalk).wedConsultation
-    ];
+        array = [
+            serverTest.talkServer(callbalk).mondayFirstTime,
+            serverTest.talkServer(callbalk).mondayReceipts
+        ];
+    } else if (callbalk === '3'){
+        array = [
+            wedSever.wedTalkSever(callbalk).wedRent,
+            wedSever.wedTalkSever(callbalk).wedLoan,
+            wedSever.wedTalkSever(callbalk).wedTenYears,
+            wedSever.wedTalkSever(callbalk).wedPayment,
+            wedSever.wedTalkSever(callbalk).wedConsultation
+        ];
+    }
 
-    event.reply(arrayWed).then(function (data) {
+
+    event.reply(array).then(function (data) {
         console.log('=============JSON================');
         console.log(JSON.stringify(arrayWed);
         console.log('=============JSON end================');
