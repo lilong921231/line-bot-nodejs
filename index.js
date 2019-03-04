@@ -13,9 +13,9 @@ bot.on('message', function(event) {
         serverTest.talkServer(callbalk).mondayFirstTime,
         serverTest.talkServer(callbalk).mondayReceipts
     ];
-    event.reply(array[i]).then(function (data) {
-        console.log('=============JSON ' + i + '================');
-        console.log(JSON.stringify(array[i]));
+    event.reply(array).then(function (data) {
+        console.log('=============JSON================');
+        console.log(JSON.stringify(array));
         console.log('=============JSON end================');
     }).catch(function (error) {
         // error
