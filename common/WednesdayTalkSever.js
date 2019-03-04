@@ -1,7 +1,7 @@
 let talkEntity = require('./entity/WednesdayTalkEntity');
 let talk = new talkEntity();
 
-function wedTalkPostback(postback) {
+function wedTalkSever(postback) {
     switch (postback) {
         case '3':
             return {
@@ -16,5 +16,5 @@ function wedTalkPostback(postback) {
 }
 
 module.exports = {
-    wedTalkPostback
-}
+    wedTalkSever
+};

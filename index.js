@@ -11,14 +11,22 @@ bot.on('message', function(event) {
     console.log('++++++++++++++++++++++++++++++++++++++');
     console.log('++++++++++++++++++++++++++++++++++++++');
     let callbalk = event.message.text;
-    // let array = [
-    //     serverTest.talkServer(callbalk).mondayFirstTime,
-    //     serverTest.talkServer(callbalk).mondayReceipts
-    // ];
+    let array = [
+        serverTest.talkServer(callbalk).mondayFirstTime,
+        serverTest.talkServer(callbalk).mondayReceipts
+    ];
 
-    event.reply(wedSever.wedTalkPostback(callbalk)).then(function (data) {
+    let arrayWed = [
+        wedSever.wedTalkSever(callbalk).wedRent,
+        wedSever.wedTalkSever(callbalk).wedLoan,
+        wedSever.wedTalkSever(callbalk).wedTenYears,
+        wedSever.wedTalkSever(callbalk).wedPayment,
+        wedSever.wedTalkSever(callbalk).wedConsultation
+    ];
+
+    event.reply(arrayWed).then(function (data) {
         console.log('=============JSON================');
-        console.log(JSON.stringify(wedSever.wedTalkPostback(callbalk)));
+        console.log(JSON.stringify(arrayWed);
         console.log('=============JSON end================');
     }).catch(function (error) {
         // error
