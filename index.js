@@ -1,6 +1,8 @@
 var express = require('express');
 var bot = require('./line.config');
 var serverTest = require('./common/MondayTalkSever');
+let wedSever = require('./common/WednesdayTalkSever');
+
 
 bot.on('message', function(event) {
     console.log('++++++++++++++++++++++++++++++++++++++');
@@ -13,7 +15,8 @@ bot.on('message', function(event) {
         serverTest.talkServer(callbalk).mondayFirstTime,
         serverTest.talkServer(callbalk).mondayReceipts
     ];
-    event.reply(serverTest.talkServer(callbalk).mondayFirstTime).then(function (data) {
+
+    event.reply(wedSever.wedTalkPostback(callbalk)).then(function (data) {
         console.log('=============JSON================');
         console.log(JSON.stringify(array));
         console.log('=============JSON end================');
@@ -22,18 +25,7 @@ bot.on('message', function(event) {
         console.log(error);
         console.log('=============== error =================');
     })
-    // var ceshi = new Promise(function (resolve, reject) {
-    //     setTimeout(function() {
-    //
-    //     }, 1000)
-    // });
-    //
-    // ceshi.then(function(){
-    //     console.log('ok?');
-    // }, function (err) {
-    //     console.log(err);
-    //
-    // })
+
 });
 
 bot.on('postback', function (event) {
@@ -47,7 +39,7 @@ bot.on('postback', function (event) {
             console.log('=============postback=============');
             console.log(JSON.stringify(serverTest.talkPostback(event.postback.data)));
     }).catch(function(error) {
-        console.log('==============error=============')
+        console.log('==============error=============');
         console.log(error);
     })
 });

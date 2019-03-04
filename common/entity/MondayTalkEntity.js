@@ -59,10 +59,6 @@ class mondayTalkEntity {
                             text: "は" + balance + "円です。"
                         }
                     ],
-                        action: {
-                            type: "postback",
-                            data: "ceshi"
-                        }
                 }
             }
         }
