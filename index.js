@@ -9,21 +9,27 @@ let server;
 botInitial();
 serverInitial();
 
-let infos, lineInfos = {}, userId = "";
+let infos, lineInfos = {}, index = 0, userId = "";
 function infosReply(event) {
-    event.reply(infos[lineInfos.userId]).then(function (data) {
-        console.log("=============success==============");
-        console.log(event.message.text);
-        console.log(event.source.userId);
+    //, event.replyToken
+    console.log("=============event==============");
+    console.log(event);
+    event.reply(infos[lineInfos[userId]]).then(function (data) {
+        console.log("=============success"+index+"==============");
+        // console.log(event.message.text);
         console.log(data);
-        lineInfos.userId = lineInfos.userId + 1;
+        index++;
+        lineInfos[userId] = index;
         const timer = setInterval(function(){
-            infosReply(event);
-            lineInfos.userId = lineInfos.userId + 1;
-            if (lineInfos.userId >= infos.length) {
+            if (lineInfos[userId] < infos.length) {
+                // infosReply(event);
+                bot.push(userId, infos[lineInfos[userId]]);
+                index++;
+                lineInfos[userId] = index;
+            } else {
                 clearTimeout(timer);
             }
-        }, 1000);
+        }, 2000);
     }).catch(function (error) {
         // error
         console.log("=============error==============");
@@ -32,23 +38,43 @@ function infosReply(event) {
 }
 function botInitial(){
 
-    bot.on('message', function(event) {
-        userId = event.source.userId;
-        lineInfos[userId] = 0;
+    bot.on('message', res => {
+        userId = res.source.userId;
+        index = 0;
+        lineInfos[userId] = index;
         console.log('++++++++++++++++++++++++++++++++++++++');
-        console.log(JSON.stringify(event));
+        console.log(JSON.stringify(res));
         console.log('++++++++++++++++++++++++++++++++++++++');
-        infos = serverTest.talkServer(event.message.text);
-        switch (event.message.text) {
+        infos = serverTest.talkServer(res.message.text);
+        switch (res.message.text) {
             case "1":
-                infos = serverTest.talkServer(event.message.text);
+                infos = serverTest.talkServer(res.message.text);
                 break;
             case "3":
-                infos = wedSever.wedTalkSever(event.message.text);
+                infos = wedSever.wedTalkSever(res.message.text);
                 break;
         }
-        infosReply(event);
+        infosReply(res);
     });
+
+    // bot.on('message', function(event) {
+    //     userId = event.source.userId;
+    //     index = 0;
+    //     lineInfos[userId] = index;
+    //     console.log('++++++++++++++++++++++++++++++++++++++');
+    //     console.log(JSON.stringify(event));
+    //     console.log('++++++++++++++++++++++++++++++++++++++');
+    //     infos = serverTest.talkServer(event.message.text);
+    //     switch (event.message.text) {
+    //         case "1":
+    //             infos = serverTest.talkServer(event.message.text);
+    //             break;
+    //         case "3":
+    //             infos = wedSever.wedTalkSever(event.message.text);
+    //             break;
+    //     }
+    //     infosReply(event);
+    // });
 
     // bot.on('message', function(event) {
     //     console.log('++++++++++++++++++++++++++++++++++++++');
@@ -113,5 +139,45 @@ function serverInitial() {
     server = app.listen(process.env.PORT || 3000, function() {
         const port = server.address().port;
         console.log("App now running on port:", port);
+    });
+}
+
+function replyMessage(replyToken, message) {
+    return new Promise((resolve, reject)=>{
+        const options = {
+            method: 'POST',
+            host: 'api.line.me',
+            port: '8080',
+            path: '/v2/bot/message/reply',
+            headers: headers(userId, date)
+        };
+
+        const postData = userInsight.getInsights("en");
+
+        let response = "";
+        const req = http.request(options,function(res){
+
+            console.log('STATUS: ' + res.statusCode);
+            if (res.statusCode === 200) {
+                console.log(res.headers);
+                res.setEncoding('utf-8');
+                res.on('data',function(chunk){
+                    // console.log(chunk);
+                    response += chunk;
+                });
+                res.on('end',function(chunk){
+                    console.log("============response================");
+                    console.log(JSON.parse(response));
+                    resolve(JSON.parse(response));
+                });
+            }
+        }).on('error',function(e){
+            console.log('problem with request: ' + e.message);
+            console.log(e);
+        });
+
+        req.write(JSON.stringify(postData));
+
+        req.end();
     });
 }
