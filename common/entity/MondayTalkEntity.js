@@ -1,4 +1,4 @@
-
+const imgUrl = "https://lilongceshi.herokuapp.com/images/";
 
 class mondayTalkEntity {
 
@@ -152,7 +152,7 @@ class mondayTalkEntity {
                             },
                             {
                                 type: "image",
-                                url: "https://github.com/lilong921231/line-bot-nodejs/blob/master/public/images/wages_jpg.jpg?raw=true",
+                                url: imgUrl + "wages_jpg.jpg",
                                 margin: "md",
                                 size: "full",
                                 aspectRatio: "20:13"
@@ -188,7 +188,7 @@ class mondayTalkEntity {
                             },
                             {
                                 type: "image",
-                                url: "https://github.com/lilong921231/line-bot-nodejs/blob/master/public/images/accountBalance_jpg.jpg?raw=true",
+                                url: imgUrl + "accountBalance_jpg.jpg",
                                 margin: "md",
                                 size: "full",
                                 aspectRatio: "20:13"
@@ -219,7 +219,7 @@ class mondayTalkEntity {
                             },
                             {
                                 type: "image",
-                                url: "https://github.com/lilong921231/line-bot-nodejs/blob/master/public/images/creditCard_jpg.jpg?raw=true",
+                                url: imgUrl + "creditCard_jpg.jpg",
                                 margin: "md",
                                 size: "full",
                                 aspectRatio: "20:13"
@@ -334,7 +334,7 @@ class mondayTalkEntity {
                         },
                         {
                             type: "image",
-                            url: "../../public/images/cake.png",
+                            url: "./images/cake.png",
                             margin: "md"
                         },
                         {
@@ -364,7 +364,7 @@ class mondayTalkEntity {
                         },
                         {
                             type: "image",
-                            url: "../../public/images/rose.png"
+                            url: "./images/rose.png"
                         },
                         {
                             type: "text",
@@ -414,7 +414,7 @@ class mondayTalkEntity {
                         },
                         {
                             type: "image",
-                            url: "../../public/images/dinner.png",
+                            url: "./images/dinner.png",
                             margin: "md"
                         },
                         {

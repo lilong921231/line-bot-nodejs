@@ -4,10 +4,14 @@ let talk = new talkEntity();
 function talkServer(eventSelect) {
     switch (eventSelect) {
         case '1':
-            return {
-                mondayFirstTime: talk.firstTimeEntity('5000000'),
-                mondayReceipts: talk.receiptsOfWeek()
-            };
+            return [
+                talk.firstTimeEntity('5000000'),
+                talk.receiptsOfWeek()
+            ];
+            // return {
+            //     mondayFirstTime: talk.firstTimeEntity('5000000'),
+            //     mondayReceipts: talk.receiptsOfWeek()
+            // };
     }
 }
 
