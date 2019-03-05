@@ -188,7 +188,7 @@ class mondayTalkEntity {
                             },
                             {
                                 type: "image",
-                                url: "https://github.com/lilong921231/line-bot-nodejs/blob/master/public/images/accountBalance.jpg?raw=true",
+                                url: "https://github.com/lilong921231/line-bot-nodejs/blob/master/public/images/accountBalance_jpg.jpg?raw=true",
                                 margin: "md",
                                 size: "full",
                                 aspectRatio: "20:13"
@@ -219,7 +219,7 @@ class mondayTalkEntity {
                             },
                             {
                                 type: "image",
-                                url: "https://github.com/lilong921231/line-bot-nodejs/blob/master/public/images/creditCard.jpg?raw=true",
+                                url: "https://github.com/lilong921231/line-bot-nodejs/blob/master/public/images/creditCard_jpg.jpg?raw=true",
                                 margin: "md",
                                 size: "full",
                                 aspectRatio: "20:13"
