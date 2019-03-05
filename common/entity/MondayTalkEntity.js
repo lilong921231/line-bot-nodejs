@@ -152,8 +152,7 @@ class mondayTalkEntity {
                             },
                             {
                                 type: "image",
-                              // previewImageUrl: '',
-                                url: "https://github.com/lilong921231/line-bot-nodejs/blob/master/public/images/wages.jpg?raw=true",
+                                url: "https://github.com/lilong921231/line-bot-nodejs/blob/master/public/images/wages_jpg.jpg?raw=true",
                                 margin: "md",
                                 size: "full",
                                 aspectRatio: "20:13"
