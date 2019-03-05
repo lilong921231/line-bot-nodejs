@@ -3,6 +3,9 @@ const bot = require('./line.config');
 const serverTest = require('./common/MondayTalkSever');
 const wedSever = require('./common/WednesdayTalkSever');
 
+const app = express();
+let server;
+
 botInitial();
 serverInitial();
 
@@ -99,9 +102,6 @@ function botInitial(){
     });
 
 }
-
-const app = express();
-let server;
 
 function serverInitial() {
     const linebotParser = bot.parser();
