@@ -7,10 +7,15 @@ let dataAccess = new UserInfoDataAccess();
 function UserRouter(req, res) {
     const MailAddress = req.body.MailAddress || '';
     dataAccess.userInfo(MailAddress).then(data => {
-        UserEntity = data;
-        res.json(UserEntity);
+        let dataJson;
+        if(data.length !== 1) {
+            dataJson = {start: '4', data: UserEntity, message: 'ユーザーの情報がありません。'};
+        } else {
+            dataJson = {start: '0', data: UserEntity};
+        }
+        res.json(dataJson);
     }).catch(err => {
-        console.log(err);
+        res.json({start: '9', message: err})
     });
 }
 
