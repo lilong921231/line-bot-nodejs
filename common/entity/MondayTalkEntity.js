@@ -152,7 +152,7 @@ class mondayTalkEntity {
                             },
                             {
                                 type: "image",
-                                url: imgUrl + "wages_jpg.jpg",
+                                url: imgUrl + "salary_jpg.jpg",
                                 margin: "md",
                                 size: "full",
                                 aspectRatio: "20:13"

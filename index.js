@@ -5,7 +5,6 @@ let serverTest = require('./common/sever/MondayTalkSever');
 let wedSever = require('./common/sever/WednesdayTalkSever');
 let UserRouter = require('./common/router/UserInfoRouter');
 
-
 bot.on('message', function(event) {
     console.log('++++++++++++++++++++++++++++++++++++++');
     console.log('++++++++++++++++++++++++++++++++++++++');

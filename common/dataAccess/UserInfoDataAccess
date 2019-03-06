@@ -1,0 +1,11 @@
+let mysql = require('../../model/database/MySqlHelper');
+let dataAccess = new mysql();
+
+class UserInfoDataAccess {
+    userInfo(userMail) {
+        const strSql = "SELECT * FROM TM_Customer WHERE MailAddress = '" + userMail + "'";
+        return dataAccess.GetTable(strSql);
+    }
+}
+
+module.exports = UserInfoDataAccess;

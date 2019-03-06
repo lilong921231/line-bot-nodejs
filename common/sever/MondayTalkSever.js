@@ -8,10 +8,6 @@ function talkServer(eventSelect) {
                 talk.firstTimeEntity('5000000'),
                 talk.receiptsOfWeek()
             ];
-            // return {
-            //     mondayFirstTime: talk.firstTimeEntity('5000000'),
-            //     mondayReceipts: talk.receiptsOfWeek()
-            // };
     }
 }
 

@@ -11,7 +11,7 @@ function UserRouter(req, res) {
         if(data.length !== 1) {
             dataJson = {start: '4', data: UserEntity, message: 'ユーザーの情報がありません。'};
         } else {
-            dataJson = {start: '0', data: UserEntity};
+            dataJson = {start: '0', data: data};
         }
         res.json(dataJson);
     }).catch(err => {
