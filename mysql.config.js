@@ -4,7 +4,7 @@ module.exports = {
         user: 'root',
         password: '123456',
         port: '3306', // tacitly approve
-        database: 'tianbaosystem', // DBname
+        database: 'lineDemo', // DBname
         multipleStatements: true,
     }
 };

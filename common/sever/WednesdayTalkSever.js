@@ -1,4 +1,4 @@
-let talkEntity = require('./entity/WednesdayTalkEntity');
+let talkEntity = require('../entity/WednesdayTalkEntity');
 let talk = new talkEntity();
 
 function wedTalkSever(postback) {

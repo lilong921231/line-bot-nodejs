@@ -1,4 +1,4 @@
-let talkEntity = require('./entity/MondayTalkEntity');
+let talkEntity = require('../entity/MondayTalkEntity');
 let talk = new talkEntity();
 
 function talkServer(eventSelect) {
