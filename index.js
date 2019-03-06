@@ -4,7 +4,9 @@ let bot = require('./line.config');
 let serverTest = require('./common/sever/MondayTalkSever');
 let wedSever = require('./common/sever/WednesdayTalkSever');
 let UserRouter = require('./common/router/UserInfoRouter');
+let LineBot = require('./common/router/LineBot');
 
+/*
 bot.on('message', function(event) {
     console.log('++++++++++++++++++++++++++++++++++++++');
     console.log('++++++++++++++++++++++++++++++++++++++');
@@ -59,9 +61,11 @@ bot.on('postback', function (event) {
         console.log(error);
     })
 });
+*/
 
 const app = express();
-const linebotParser = bot.parser();
+const line = new LineBot();
+const linebotParser = line;
 
 app.use(bodyParser.json());
 app.use(express.static('public'));
@@ -73,5 +77,4 @@ var server = app.listen(process.env.PORT || 3000, function() {
     var port = server.address().port;
     console.log("App now running on port:", port);
 });
-
 

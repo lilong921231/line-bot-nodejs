@@ -3,7 +3,6 @@ let UserInfoDataAccess = require('../dataAccess/UserInfoDataAccess');
 
 let dataAccess = new UserInfoDataAccess();
 
-
 function UserRouter(req, res) {
     const MailAddress = req.body.MailAddress || '';
     dataAccess.userInfo(MailAddress).then(data => {
