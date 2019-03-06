@@ -65,7 +65,7 @@ const app = express();
 const linebotParser = bot.parser();
 
 app.use(bodyParser.json());
-
+app.use(express.static('public'));
 app.post('/', linebotParser);
 app.post('/userInfo', UserRouter);
 
