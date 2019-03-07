@@ -6,11 +6,11 @@ let dataAccess = new MondayDataAccess();
 let mondayData;
 
 function talkServer(event) {
-    Monday(event);
+    const balance = Monday(event)['Balance'];
     switch (event) {
         case 'aiko':
             return [
-                talk.firstTimeEntity(mondayData['Balance']),
+                talk.firstTimeEntity(balance),
                 talk.receiptsOfWeek()
             ];
     }
@@ -45,7 +45,7 @@ function Monday(event) {
 
 function dataAccess_Monday(eMail) {
     dataAccess.Monday(eMali).then(data => {
-        mondayData = data;
+        return mondayData = data;
     }).catch(err => {
         console.log(err);
     })
