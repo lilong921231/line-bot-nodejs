@@ -26,9 +26,6 @@ function lintBot() {
         }
 
         event.reply(array).then(function (data) {
-            event.reply(array).then(function (data) {
-                console.log('OK');
-            });
             console.log('=============JSON================');
             console.log(JSON.stringify(array));
             console.log('=============JSON end================');
