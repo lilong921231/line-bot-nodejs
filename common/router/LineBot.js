@@ -26,6 +26,7 @@ function lintBot() {
                 wedSever.wedTalkSever(callbalk).wedConsultation
             ];
         }
+        console.log('data id null ');
         event.reply(array).then(data => {
 
         }).catch(error => {
@@ -59,6 +60,7 @@ function lintBot() {
         })
     });
 
+    return bot.parser();
 }
 
 module.exports = lintBot;
