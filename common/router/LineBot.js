@@ -71,7 +71,7 @@ function lintBot() {
         })
 
     });
-
+    return bot.parser();
 }
 
 module.exports = lintBot;
