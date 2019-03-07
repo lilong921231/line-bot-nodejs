@@ -25,7 +25,8 @@ function lintBot() {
             ];
         }
 
-        event.reply(array).then(function () {
+        event.reply(array).then(function (data) {
+            console.log(data);
             console.log('=============JSON================');
             console.log(JSON.stringify(array));
             console.log('=============JSON end================');
@@ -44,7 +45,8 @@ function lintBot() {
         console.log('=============postback JSON end=============');
 
         event.reply(serverTest.talkPostback(event.postback.data))
-            .then(function () {
+            .then(function (data) {
+                console.log(data);
                 console.log('=============postback=============');
                 console.log(JSON.stringify(serverTest.talkPostback(event.postback.data)));
             }).catch(function(error) {
