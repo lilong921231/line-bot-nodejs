@@ -1,18 +1,25 @@
+/*
 let express = require('express');
 let bodyParser = require('body-parser');
-let bot = require('./line.config');
+// let linebot = require('./line.config');
 let serverTest = require('./common/sever/MondayTalkSever');
 let wedSever = require('./common/sever/WednesdayTalkSever');
 let UserRouter = require('./common/router/UserInfoRouter');
 // let LineBot = require('./common/router/LineBot');
+let linebot = require('linebot');
 
-
+bot = linebot({
+    channelId: "1646638453", // lineアカウントのID
+    channelSecret: "c20aee7e28b0b762cbf5adb9e8a1fa96", // lineのChannel_Secret
+    channelAccessToken: "noRmAnxXUXdfOEmrasRRY0IF/YPJd+6WF5XXtQ0Nzhl438A+cvFalWwMAOSY1V2hwY3e6xQERfmGBhv2CxuCiJDF80xy4Ryo9N/" +
+        "mMTsd+6z5AZNXJI6fXtL2eCr/gUSIovXzKIDaGBlEDFSaF7BW4gdB04t89/1O/w1cDnyilFU=" // lineのChannel_Access_Token
+});
 bot.on('message', function(event) {
 
     console.log('ceshi');
 
 
-  /*  console.log('++++++++++++++++++++++++++++++++++++++');
+  /!*  console.log('++++++++++++++++++++++++++++++++++++++');
     console.log('++++++++++++++++++++++++++++++++++++++');
     console.log(JSON.stringify(event));
     console.log('++++++++++++++++++++++++++++++++++++++');
@@ -33,7 +40,7 @@ bot.on('message', function(event) {
             wedSever.wedTalkSever(callbalk).wedConsultation
         ];
     }
-*/
+*!/
 
     event.reply(event.message.text).then(function () {
         console.log('=============JSON================');
@@ -46,7 +53,7 @@ bot.on('message', function(event) {
     })
 
 });
-/*
+/!*
 
 bot.on('postback', function (event) {
     console.log('=============postback JSON=============');
@@ -63,7 +70,7 @@ bot.on('postback', function (event) {
         console.log(error);
     })
 });
-*/
+*!/
 
 const app = express();
 const linebotParser =  bot.parser();
@@ -79,3 +86,45 @@ var server = app.listen(process.env.PORT || 3000, function() {
     console.log("App now running on port:", port);
 });
 
+*/
+var express = require('express');
+var bot = require('./line.config');
+var serverTest = require('./common/sever/MondayTalkSever');
+let wedSever = require('./common/sever/WednesdayTalkSever');
+
+
+bot.on('message', function(event) {
+
+    event.reply(event.message.text).then(function (data) {
+    }).catch(function (error) {
+    })
+
+});
+
+/*
+bot.on('postback', function (event) {
+    console.log('=============postback JSON=============');
+
+    console.log(JSON.stringify(event.postback));
+    console.log('=============postback JSON end=============');
+
+    event.reply(serverTest.talkPostback(event.postback.data))
+        .then(function (data) {
+            console.log('=============postback=============');
+            console.log(JSON.stringify(serverTest.talkPostback(event.postback.data)));
+        }).catch(function(error) {
+        console.log('==============error=============');
+        console.log(error);
+    })
+});
+*/
+
+const app = express();
+const linebotParser = bot.parser();
+app.post('/', linebotParser);
+
+//express port:3000
+var server = app.listen(process.env.PORT || 3000, function() {
+    var port = server.address().port;
+    console.log("App now running on port:", port);
+});
