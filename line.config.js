@@ -1,4 +1,4 @@
-var linebot = require('linebot');
+let linebot = require('linebot');
 
 /**
  * lineのコンフィグ
