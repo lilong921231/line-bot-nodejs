@@ -40,7 +40,6 @@ function lintBot() {
 
     bot.on('postback', function (event) {
         console.log('=============postback JSON=============');
-
         console.log(JSON.stringify(event.postback));
         console.log('=============postback JSON end=============');
 
