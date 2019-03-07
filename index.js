@@ -88,11 +88,12 @@ var server = app.listen(process.env.PORT || 3000, function() {
 
 */
 var express = require('express');
-var bot = require('./line.config');
+// var bot = require('./line.config');
 var serverTest = require('./common/sever/MondayTalkSever');
 let wedSever = require('./common/sever/WednesdayTalkSever');
 let LineBot = require('./common/router/LineBot');
 
+LineBot();
 // bot.on('message', function(event) {
 //
 //     event.reply(event.message.text).then(function (data) {
@@ -122,7 +123,7 @@ bot.on('postback', function (event) {
 */
 
 const app = express();
-const linebotParser = LineBot;
+const linebotParser = LineBot();
 app.post('/', linebotParser);
 
 //express port:3000
