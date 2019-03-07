@@ -6,7 +6,7 @@ function lintBot() {
     bot.on('message', function(event) {
         let callbalk = event.message.text;
         let array;
-        if(callbalk === '1') {
+        if(callbalk === 'aiko') {
             array = [
                 serverTest.talkServer(callbalk)
             ];
