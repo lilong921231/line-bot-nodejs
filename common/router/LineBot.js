@@ -2,7 +2,7 @@ let bot = require('../../line.config');
 let serverTest = require('../sever/MondayTalkSever');
 let wedSever = require('../sever/WednesdayTalkSever');
 
-function lintBot(event) {
+function lintBot() {
 
   /*  console.log('thsi linebot()');
     console.log(event);
