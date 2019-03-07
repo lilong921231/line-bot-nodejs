@@ -4,7 +4,9 @@ let wedSever = require('../sever/WednesdayTalkSever');
 
 function lintBot() {
 
+    console.log('thsi linebot()');
     bot.on('message', function(event) {
+        console.log('this bot.on');
         console.log(event);
         console.log('++++++++++++++++++++++++++++++++++++++');
         console.log('++++++++++++++++++++++++++++++++++++++');
