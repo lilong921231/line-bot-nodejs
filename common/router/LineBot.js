@@ -25,7 +25,6 @@ function lintBot() {
             ];
         }
 
-
         event.reply(array).then(function (data) {
             event.reply(array).then(function (data) {
                 console.log('OK');

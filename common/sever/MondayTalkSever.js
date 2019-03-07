@@ -1,16 +1,17 @@
 let talkEntity = require('../entity/MondayTalkEntity');
 let MondayDataAccess = require('../dataAccess/MondayDataAccess');
+let UserDetailed = require('../entity/UserDetailed');
 let talk = new talkEntity();
 let dataAccess = new MondayDataAccess();
 
-let mondayData;
+
 
 function talkServer(event) {
-    const balance = Monday(event)['Balance'];
+    UserDetailed = Monday(event);
     switch (event) {
         case 'aiko':
             return [
-                talk.firstTimeEntity(balance),
+                talk.firstTimeEntity(UserDetailed.Balance),
                 talk.receiptsOfWeek()
             ];
     }
@@ -45,7 +46,7 @@ function Monday(event) {
 
 function dataAccess_Monday(eMail) {
     dataAccess.Monday(eMali).then(data => {
-        return mondayData = data;
+        return data;
     }).catch(err => {
         console.log(err);
     })
