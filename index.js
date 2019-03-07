@@ -62,8 +62,7 @@ let LineBot = require('./common/router/LineBot');
 // });
 
 const app = express();
-const line = new LineBot();
-const linebotParser = line;
+const linebotParser = new LineBot();
 
 app.use(bodyParser.json());
 app.use(express.static('public'));
