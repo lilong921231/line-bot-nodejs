@@ -1,10 +1,9 @@
 var express = require('express');
 let LineBot = require('./common/router/LineBot');
 let UserRouter = require('./common/router/UserInfoRouter');
-
-// LineBot();
-
 const app = express();
+
+
 app.post('/', LineBot());
 app.post('/userInfo', UserRouter);
 
