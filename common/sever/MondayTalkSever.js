@@ -7,10 +7,12 @@ let dataAccess = new MondayDataAccess();
 
 function talkServer(event) {
     UserDetailed = Monday(event);
+    console.log(UserDetailed);
+    console.log(JSON.stringify(UserDetailed));
     switch (event) {
         case 'aiko':
             return [
-                talk.firstTimeEntity(UserDetailed.Balance),
+                talk.firstTimeEntity(UserDetailed['Balance']),
                 talk.receiptsOfWeek()
             ];
     }
