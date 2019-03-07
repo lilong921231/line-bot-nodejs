@@ -91,15 +91,17 @@ var express = require('express');
 var bot = require('./line.config');
 var serverTest = require('./common/sever/MondayTalkSever');
 let wedSever = require('./common/sever/WednesdayTalkSever');
+let LineBot = require('./common/router/LineBot');
 
-
-bot.on('message', function(event) {
-
-    event.reply(event.message.text).then(function (data) {
-    }).catch(function (error) {
-    })
-
-});
+// bot.on('message', function(event) {
+//
+//     event.reply(event.message.text).then(function (data) {
+//
+//      }).catch(function (error) {
+//
+//     })
+//
+// });
 
 /*
 bot.on('postback', function (event) {
@@ -120,7 +122,7 @@ bot.on('postback', function (event) {
 */
 
 const app = express();
-const linebotParser = bot.parser();
+const linebotParser = LineBot;
 app.post('/', linebotParser);
 
 //express port:3000

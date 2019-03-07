@@ -4,7 +4,7 @@ let wedSever = require('../sever/WednesdayTalkSever');
 
 function lintBot(event) {
 
-    console.log('thsi linebot()');
+  /*  console.log('thsi linebot()');
     console.log(event);
     bot.on('message', function(event) {
         console.log('this bot.on');
@@ -36,7 +36,7 @@ function lintBot(event) {
 
         });
 
-    /*    event.reply(array).then(data => {
+    /!*    event.reply(array).then(data => {
             console.log('=============JSON================');
             console.log(JSON.stringify(array));
             console.log('=============JSON end================');
@@ -44,7 +44,7 @@ function lintBot(event) {
             // error
             console.log(error);
             console.log('=============== error =================');
-        })*/
+        })*!/
 
     });
 
@@ -55,15 +55,23 @@ function lintBot(event) {
 
         event.reply(serverTest.talkPostback(event.postback.data))
             .then(data => {
-                /*console.log('=============postback=============');
-                console.log(JSON.stringify(serverTest.talkPostback(event.postback.data)));*/
+                /!*console.log('=============postback=============');
+                console.log(JSON.stringify(serverTest.talkPostback(event.postback.data)));*!/
             }).catch(error => {
-         /*   console.log('==============error=============');
-            console.log(error);*/
+         /!*   console.log('==============error=============');
+            console.log(error);*!/
         })
-    });
+    });*/
+    bot.on('message', function(event) {
 
+        event.reply(event.message.text).then(function (data) {
+
+        }).catch(function (error) {
+
+        })
+
+    });
     return bot.parser();
 }
 
-// module.exports = lintBot;
+module.exports = lintBot;
