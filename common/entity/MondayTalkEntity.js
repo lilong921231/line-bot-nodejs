@@ -1,5 +1,11 @@
 const imgUrl = "https://lilongceshi.herokuapp.com/images/";
 
+/**
+ * 月曜日に表示する情報クラス
+ * @author li long
+ * @date 2019-3-4
+ */
+
 class mondayTalkEntity {
 
     AddDate(date, addDays){
@@ -397,7 +403,7 @@ class mondayTalkEntity {
                             action: {
                                 type: "uri",
                                 label: "注文",
-                                uri: "https://linecorp.com"
+                                uri: "https://www.i879.com/products/catalog-detail/categoryId/ya0b/productCd/116003?grid=reco_ranking_product"
                             },
                             margin: "sm",
                             height: "sm"
@@ -422,7 +428,7 @@ class mondayTalkEntity {
                             action: {
                                 type: "uri",
                                 label: "予約",
-                                uri: "https://linecorp.com"
+                                uri: "https://restaurant.ikyu.com/area/tokyo/10001/05/t-scene2859/"
                             }
                         }
                     ]

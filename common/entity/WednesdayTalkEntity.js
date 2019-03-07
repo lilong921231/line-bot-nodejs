@@ -1,4 +1,8 @@
-
+/**
+ * 水曜日に表示する情報クラス
+ * @author li long
+ * @date 2019-3-4
+ */
 
 class WednesdayTalkEntity {
 

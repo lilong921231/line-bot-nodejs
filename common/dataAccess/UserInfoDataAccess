@@ -1,11 +1,25 @@
 let mysql = require('../../model/database/MySqlHelper');
 let dataAccess = new mysql();
 
+/**
+ * ユーザーの情報を検索
+ * @author li long
+ * @date 2019-3-6
+ */
+
 class UserInfoDataAccess {
+    /**
+     * 検索のSQL語句
+     * @param userMail ユーザーのE-Mail
+     */
     userInfo(userMail) {
         const strSql = "SELECT * FROM TM_Customer WHERE MailAddress = '" + userMail + "'";
         return dataAccess.GetTable(strSql);
     }
 }
 
+/**
+ * ユーザーの情報を検索するインターフェース
+ * @type {UserInfoDataAccess}
+ */
 module.exports = UserInfoDataAccess;

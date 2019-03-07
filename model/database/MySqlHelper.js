@@ -1,18 +1,26 @@
 const mysql = require('mysql');
 const { MySqlConnectionCfg } = require('../../mysql.config');
 
+/**
+ * SQLの共通の方法
+ * @author li long
+ * @date 2019-2-26
+ */
+
 class MySqlHelper {
 
     /**
-     * structure
+     * 構造
      */
     constructor() {
         this.connection = mysql.createConnection(MySqlConnectionCfg);
     }
 
     /**
-     * Execution query
-     * @param sqlstring sql Sentence
+     * SQLの検索
+     * @author li long
+     * @date 2019-2-26
+     * @param sqlstring SQLの語句
      * @constructor
      */
     GetTable(sqlstring) {
@@ -38,8 +46,10 @@ class MySqlHelper {
     }
 
     /**
-     * Execution of additions, deletions and modifications
-     * @param sqlstring sql Sentence
+     * SQLの増加、削除と変更
+     * @author li long
+     * @date 2019-2-26
+     * @param sqlstring SQLの語句
      * @constructor
      */
     ExecuteNonQuery(sqlstring) {

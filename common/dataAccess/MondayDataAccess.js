@@ -1,7 +1,20 @@
 let mysql = require('../../model/database/MySqlHelper');
 let dataAccess = new mysql();
 
+/**
+ * ユーザーの口座残高や、家賃や、給料などSQLごくの検索
+ * @author li long
+ * @date 2019-3-6
+ */
 class MondayDataAccess {
+
+    /**
+     * 検索のSQL語句
+     * @author li long
+     * @date 2019-3-6
+     * @param userMail ユーザのE-Mail
+     * @constructor　検索の結果
+     */
     Monday(userMail) {
         let strSql = "SELECT ";
             strSql = strSql + "tb.Balance, ";
@@ -22,4 +35,10 @@ class MondayDataAccess {
     }
 }
 
+/**
+ * 月曜日に表示する情報のインターフェース
+ * @author li long
+ * @date 2019-3-6
+ * @type {MondayDataAccess}
+ */
 module.exports = MondayDataAccess;
