@@ -16,24 +16,17 @@ bot.on('message', function(event) {
     let array;
     if(callbalk === '1') {
         array = [
-            serverTest.talkServer(callbalk).mondayFirstTime,
-            serverTest.talkServer(callbalk).mondayReceipts
+            serverTest.talkServer(callbalk)
         ];
     } else if (callbalk === '3'){
         array = [
-            wedSever.wedTalkSever(callbalk).wedRent,
-            wedSever.wedTalkSever(callbalk).wedLoan,
-            wedSever.wedTalkSever(callbalk).wedTenYears,
-            wedSever.wedTalkSever(callbalk).wedPayment,
-            wedSever.wedTalkSever(callbalk).wedConsultation
+            wedSever.wedTalkSever(callbalk)
         ];
     }
 
 
     event.reply(array).then(function (data) {
-        event.reply(array).then(function (data) {
-           console.log('OK');
-        });
+
         console.log('=============JSON================');
         console.log(JSON.stringify(array));
         console.log('=============JSON end================');
