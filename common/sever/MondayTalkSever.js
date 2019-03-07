@@ -45,8 +45,8 @@ function Monday(event) {
 }
 
 function dataAccess_Monday(eMail) {
-    dataAccess.Monday(eMali).then(data => {
-        return data;
+    dataAccess.Monday(eMali).then(myData => {
+        return myData;
     }).catch(err => {
         console.log(err);
     })
