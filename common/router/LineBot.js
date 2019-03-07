@@ -2,9 +2,10 @@ let bot = require('../../line.config');
 let serverTest = require('../sever/MondayTalkSever');
 let wedSever = require('../sever/WednesdayTalkSever');
 
-function lintBot() {
+function lintBot(event) {
 
     console.log('thsi linebot()');
+    console.log(event);
     bot.on('message', function(event) {
         console.log('this bot.on');
         console.log(event);
@@ -65,4 +66,4 @@ function lintBot() {
     return bot.parser();
 }
 
-module.exports = lintBot;
+// module.exports = lintBot;
