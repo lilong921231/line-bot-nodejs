@@ -8,6 +8,9 @@ let dataAccess = new MondayDataAccess();
 function talkServer(event) {
     UserDetailed = Monday(event);
     console.log(UserDetailed);
+    console.log('==============dataAccess_Monday=============');
+    console.log(UserDetailed);
+    console.log('==============dataAccess_Monday end=============');
     console.log(JSON.stringify(UserDetailed));
     switch (event) {
         case 'aiko':
@@ -32,6 +35,9 @@ function Monday(event) {
 
     if(event === 'aiko') {
         const eMail = event + '@docomo.ne.jp';
+        console.log('==============Mondey=============');
+        console.log(dataAccess_Monday(eMail));
+        console.log('==============Mondey end=============');
         return dataAccess_Monday(eMail);
     } else if(event === 'kennji') {
         const eMail = event + '@yahoo.co.jp';
@@ -47,6 +53,9 @@ function Monday(event) {
 
 function dataAccess_Monday(eMail) {
     dataAccess.Monday(eMail).then(myData => {
+        console.log('==============dataAccess_Monday=============');
+        console.log(dataAccess_Monday(data));
+        console.log('==============dataAccess_Monday end=============');
         console.log(data);
         return myData;
     }).catch(err => {
