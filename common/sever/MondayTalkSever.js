@@ -32,16 +32,16 @@ function Monday(event) {
 
     if(event === 'aiko') {
         const eMail = event + '@docomo.ne.jp';
-        dataAccess_Monday(eMail);
+        return dataAccess_Monday(eMail);
     } else if(event === 'kennji') {
         const eMail = event + '@yahoo.co.jp';
-        dataAccess_Monday(eMail);
+        return dataAccess_Monday(eMail);
     } else if(event === 'hiroshi') {
         const eMail = event + '@docomo.ne.jp';
-        dataAccess_Monday(eMail);
+        return dataAccess_Monday(eMail);
     } else if(event === 'kaori') {
         const eMail = event + '@docomo-camera.ne.jp';
-        dataAccess_Monday(eMail);
+        return dataAccess_Monday(eMail);
     }
 }
 
