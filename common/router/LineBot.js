@@ -25,12 +25,12 @@ function lintBot() {
             ];
         }
 
-        event.reply(array).then(function (data) {
+        event.reply(array).then(data => {
             console.log(data);
             console.log('=============JSON================');
             console.log(JSON.stringify(array));
             console.log('=============JSON end================');
-        }).catch(function (error) {
+        }).catch(error => {
             // error
             console.log(error);
             console.log('=============== error =================');
@@ -45,11 +45,11 @@ function lintBot() {
         console.log('=============postback JSON end=============');
 
         event.reply(serverTest.talkPostback(event.postback.data))
-            .then(function (data) {
+            .then(data => {
                 console.log(data);
                 console.log('=============postback=============');
                 console.log(JSON.stringify(serverTest.talkPostback(event.postback.data)));
-            }).catch(function(error) {
+            }).catch(error => {
             console.log('==============error=============');
             console.log(error);
         })

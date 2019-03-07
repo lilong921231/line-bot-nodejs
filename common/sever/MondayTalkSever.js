@@ -5,7 +5,6 @@ let talk = new talkEntity();
 let dataAccess = new MondayDataAccess();
 
 
-
 function talkServer(event) {
     UserDetailed = Monday(event);
     switch (event) {
