@@ -54,9 +54,8 @@ function Monday(event) {
 function dataAccess_Monday(eMail) {
     dataAccess.Monday(eMail).then(myData => {
         console.log('==============dataAccess_Monday=============');
-        console.log(dataAccess_Monday(data));
+        console.log(myData);
         console.log('==============dataAccess_Monday end=============');
-        console.log(data);
         return myData;
     }).catch(err => {
         console.log(err);
