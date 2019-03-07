@@ -13,8 +13,7 @@ function lintBot() {
         let array;
         if(callbalk === '1') {
             array = [
-                serverTest.talkServer(callbalk).mondayFirstTime,
-                serverTest.talkServer(callbalk).mondayReceipts
+                serverTest.talkServer(callbalk)
             ];
         } else if (callbalk === '3'){
             array = [
