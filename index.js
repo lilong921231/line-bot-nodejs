@@ -3,8 +3,7 @@ let LineBot = require('./common/router/LineBot');
 let UserRouter = require('./common/router/UserInfoRouter');
 const app = express();
 
-
-app.post('/', LineBot());
+app.post('/', LineBot);
 app.post('/userInfo', UserRouter);
 
 //express port:3000

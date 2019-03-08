@@ -2,8 +2,9 @@ let bot = require('../../line.config');
 let serverTest = require('../sever/MondayTalkSever');
 let wedSever = require('../sever/WednesdayTalkSever');
 
-function lintBot() {
-    bot.on('message', function(event) {
+function lineBot() {
+
+/*    bot.on('message', function(event) {
         let callbalk = event.message.text;
         let array;
         if(callbalk === 'aiko') {
@@ -19,7 +20,6 @@ function lintBot() {
                 wedSever.wedTalkSever(callbalk).wedConsultation
             ];
         }
-        console.log('data id null ');
         event.reply(array).then(data => {
 
         }).catch(error => {
@@ -38,17 +38,18 @@ function lintBot() {
             }).catch(error => {
 
         })
-    });
-  /*  bot.on('message', function(event) {
-
-        event.reply(event.message.text).then(function (data) {
-
-        }).catch(function (error) {
-
-        })
-
     });*/
+    bot.on('message', function(event) {
+        console.log('ceshi linebot');
+        event.reply(event.message.text).then(function (data) {
+            console.log(event.message.text);
+            console.log(data);
+        }).catch(function (error) {
+            console.log(error);
+        });
+
+    });
     return bot.parser();
 }
 
-module.exports = lintBot;
+module.exports = lineBot();

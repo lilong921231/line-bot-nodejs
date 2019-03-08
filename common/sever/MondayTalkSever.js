@@ -6,19 +6,30 @@ let dataAccess = new MondayDataAccess();
 
 
 function talkServer(event) {
-    UserDetailed = Monday(event);
-    console.log(UserDetailed);
-    console.log('==============dataAccess_Monday=============');
-    console.log(UserDetailed);
-    console.log('==============dataAccess_Monday end=============');
-    console.log(JSON.stringify(UserDetailed));
-    switch (event) {
-        case 'aiko':
-            return [
-                talk.firstTimeEntity(UserDetailed['Balance']),
-                talk.receiptsOfWeek()
-            ];
-    }
+    console.log('========== one ============');
+    Monday(event).then(data => {
+
+        UserDetailed = data;
+        console.log('===========data===========');
+        console.log(UserDetailed);
+        console.log('===========data end===========');
+
+
+
+        switch (event) {
+            case 'aiko':
+                console.log('============switch===========');
+                console.log(UserDetailed[0].Balance);
+                console.log('============switch end===========');
+                return talk.firstTimeEntity(UserDetailed[0].Balance);/*[
+                    ,
+                    talk.receiptsOfWeek()
+                ];*/
+        }
+    }).catch(err => {
+        console.log(err);
+    });
+
 }
 
 function talkPostback(postback) {
@@ -32,38 +43,28 @@ function talkPostback(postback) {
 }
 
 function Monday(event) {
-
+    console.log('=========== two =========');
     if(event === 'aiko') {
         const eMail = event + '@docomo.ne.jp';
-        console.log('==============Mondey=============');
-        console.log(dataAccess_Monday(eMail));
-        console.log('==============Mondey end=============');
-        return dataAccess_Monday(eMail);
+    /*    dataAccess.Monday(eMail).then(data => {
+            console.log('===========data===========');
+            console.log(data);
+            console.log('===========data end===========');
+        }).catch(err => {
+            console.log(err);
+        });*/
+        return dataAccess.Monday(eMail);
     } else if(event === 'kennji') {
         const eMail = event + '@yahoo.co.jp';
-        return dataAccess_Monday(eMail);
+        return dataAccess.Monday(eMail);
     } else if(event === 'hiroshi') {
         const eMail = event + '@docomo.ne.jp';
-        return dataAccess_Monday(eMail);
+        return dataAccess.Monday(eMail);
     } else if(event === 'kaori') {
         const eMail = event + '@docomo-camera.ne.jp';
-        return dataAccess_Monday(eMail);
+        return dataAccess.Monday(eMail);
     }
 }
-
-function dataAccess_Monday(eMail) {
-    dataAccess.Monday(eMail).then(myData => {
-        console.log('==============dataAccess_Monday=============');
-        console.log(myData);
-        console.log('==============dataAccess_Monday end=============');
-        return myData;
-    }).catch(err => {
-        console.log(err);
-    })
-}
-
-
-
 
 module.exports = {
     talkServer,

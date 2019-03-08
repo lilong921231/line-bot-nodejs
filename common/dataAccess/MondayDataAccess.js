@@ -1,5 +1,6 @@
 let mysql = require('../../model/database/MySqlHelper');
 let dataAccess = new mysql();
+let UserDetailed = require('../entity/UserDetailed');
 
 /**
  * ユーザーの口座残高や、家賃や、給料などSQLごくの検索
@@ -7,7 +8,6 @@ let dataAccess = new mysql();
  * @date 2019-3-6
  */
 class MondayDataAccess {
-
     /**
      * 検索のSQL語句
      * @author li long
@@ -16,8 +16,10 @@ class MondayDataAccess {
      * @constructor　検索の結果
      */
     Monday(userMail) {
+
         let strSql = "SELECT ";
             strSql = strSql + "tb.Balance, ";
+            strSql = strSql + "tb.UserId, ";
             strSql = strSql + "tb.Salary, ";
             strSql = strSql + "tb.Rent, ";
             strSql = strSql +  "tb.Deduction, ";
@@ -31,7 +33,12 @@ class MondayDataAccess {
             strSql = strSql +  "= ";
             strSql = strSql +  "tb.UserId ";
             strSql = strSql +  "WHERE tm.MailAddress = '" + userMail + "'";
-        return dataAccess.GetTable(strSql);
+
+            return dataAccess.GetTable(strSql)/*.then(data => {
+                     return data;
+                }).catch(err => {
+                    return err;
+                });*/
     }
 }
 
