@@ -7,33 +7,14 @@ let dataAccess = new MondayDataAccess();
 
 function talkServer(event) {
     console.log(event);
+    let day = "日月火水木金土".charAt(new Date().getDay());
     switch (event) {
         case 'aiko':
             console.log('==========ceshi==========');
             return [
-                // talk.firstTimeEntity(UserDetailed[0].Balance),
                 talk.firstTimeEntity('560000000'),
                 talk.receiptsOfWeek()
             ];
-    }
-
-
-    /*Monday(event).then(data => {
-        UserDetailed = data;
-
-    }).catch(err => {
-        console.log(err);
-    });*/
-
-}
-
-function talkPostback(postback) {
-    let day = "日月火水木金土".charAt(new Date().getDay());
-
-    console.log(postback);
-
-
-    switch (postback) {
         case 'OK':
             return [
                 talk.detailedOfWeek('2018-11-09', day, '500000', '-2000000', '20000000'),
@@ -43,6 +24,7 @@ function talkPostback(postback) {
             console.log('=============== events =============');
             return talk.thisWeekEvent('2018-11-09', day, '10800');
     }
+
 }
 
 function Monday(event) {

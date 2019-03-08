@@ -29,7 +29,7 @@ function lineBot() {
     });
 
     bot.on('postback', function (event) {
-        event.reply(testServer.talkPostback(event.postback.data))
+        event.reply(testServer.talkServer(event.postback.data))
             .then(data => {
                 console.log(data);
                 console.log('============postback==========');
