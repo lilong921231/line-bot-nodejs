@@ -1,6 +1,6 @@
 let bot = require('../../line.config');
 let serverTest = require('../sever/MondayTalkSever');
-let testServer = require('../sever/MondayTalkSever');
+let testServer = require('../sever/testServer');
 let wedSever = require('../sever/WednesdayTalkSever');
 
 function lineBot() {
