@@ -10,10 +10,11 @@ function talkServer(event) {
         UserDetailed = data;
         switch (event) {
             case 'aiko':
-                return talk.firstTimeEntity(UserDetailed[0].Balance);/*[
-                    ,
+                return [
+                    // talk.firstTimeEntity(UserDetailed[0].Balance),
+                    talk.firstTimeEntity('560000000'),
                     talk.receiptsOfWeek()
-                ];*/
+                ];
         }
     }).catch(err => {
         console.log(err);

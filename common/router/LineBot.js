@@ -1,15 +1,16 @@
 let bot = require('../../line.config');
 let serverTest = require('../sever/MondayTalkSever');
+let testServer = require('../sever/MondayTalkSever');
 let wedSever = require('../sever/WednesdayTalkSever');
 
 function lineBot() {
 
-/*    bot.on('message', function(event) {
+    bot.on('message', function(event) {
         let callbalk = event.message.text;
         let array;
         if(callbalk === 'aiko') {
             array = [
-                serverTest.talkServer(callbalk)
+                testServer.talkServer(callbalk)
             ];
         } else if (callbalk === '3'){
             array = [
@@ -28,23 +29,14 @@ function lineBot() {
     });
 
     bot.on('postback', function (event) {
-        console.log('=============postback JSON=============');
-        console.log(JSON.stringify(event.postback));
-        console.log('=============postback JSON end=============');
-
-        event.reply(serverTest.talkPostback(event.postback.data))
+        event.reply(testServer.talkPostback(event.postback.data))
             .then(data => {
 
             }).catch(error => {
 
         })
-    });*/
-    bot.on('message', function(event) {
-        event.reply(event.message.text).then(function (data) {
-        }).catch(function (error) {
-        });
-
     });
+
     return bot.parser();
 }
 
