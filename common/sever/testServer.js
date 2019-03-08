@@ -27,23 +27,4 @@ function talkServer(event) {
 
 }
 
-function Monday(event) {
-    if(event === 'aiko') {
-        const eMail = event + '@docomo.ne.jp';
-        return dataAccess.Monday(eMail);
-    } else if(event === 'kennji') {
-        const eMail = event + '@yahoo.co.jp';
-        return dataAccess.Monday(eMail);
-    } else if(event === 'hiroshi') {
-        const eMail = event + '@docomo.ne.jp';
-        return dataAccess.Monday(eMail);
-    } else if(event === 'kaori') {
-        const eMail = event + '@docomo-camera.ne.jp';
-        return dataAccess.Monday(eMail);
-    }
-}
-
-module.exports = {
-    talkServer,
-    talkPostback
-};
+module.exports = talkServer;
