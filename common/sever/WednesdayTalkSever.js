@@ -3,7 +3,7 @@ let talk = new talkEntity();
 
 function wedTalkSever(postback) {
     switch (postback) {
-        case '3':
+        case '水曜日':
             return [
                 talk.rentText('3', '12'),
                 talk.maxYearsLoan('35', '4000'),
