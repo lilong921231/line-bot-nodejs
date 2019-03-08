@@ -39,6 +39,8 @@ function Monday(event) {
     } else if(event === 'kaori') {
         const eMail = event + '@docomo-camera.ne.jp';
         return dataAccess.Monday(eMail);
+    } else {
+        return event;
     }
 }
 

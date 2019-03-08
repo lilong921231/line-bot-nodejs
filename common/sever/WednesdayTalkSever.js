@@ -15,6 +15,4 @@ function wedTalkSever(postback) {
     }
 }
 
-module.exports = {
-    wedTalkSever
-};
+module.exports = wedTalkSever;

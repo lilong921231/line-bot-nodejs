@@ -7,21 +7,15 @@ function lineBot() {
 
     bot.on('message', function(event) {
         let callbalk = event.message.text;
-     //   let array;
-  /*      if(callbalk === 'aiko') {
-            array = [
-                testServer.talkServer(callbalk)
-            ];
-        } else if (callbalk === '3'){
-            array = [
-                wedSever.wedTalkSever(callbalk).wedRent,
-                wedSever.wedTalkSever(callbalk).wedLoan,
-                wedSever.wedTalkSever(callbalk).wedTenYears,
-                wedSever.wedTalkSever(callbalk).wedPayment,
-                wedSever.wedTalkSever(callbalk).wedConsultation
-            ];
-        }*/
-        event.reply( testServer(callbalk)).then(data => {
+        let array;
+
+        if(callbalk === '水曜日') {
+            array = wedSever(callbalk);
+        } else {
+            array = testServer(callbalk);
+        }
+
+        event.reply(array).then(data => {
 
         }).catch(error => {
 
