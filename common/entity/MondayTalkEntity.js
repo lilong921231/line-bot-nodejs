@@ -365,10 +365,6 @@ class mondayTalkEntity {
                             color: "#2A2A2A"
                         },
                         {
-                            type: "text",
-                            text: "Text"
-                        },
-                        {
                             type: "image",
                             url: imgUrl + "rose.jpg"
                         },
