@@ -10,6 +10,7 @@ function talkServer(event) {
         UserDetailed = data;
         switch (event) {
             case 'aiko':
+                console.log('==========ceshi==========');
                 return [
                     // talk.firstTimeEntity(UserDetailed[0].Balance),
                     talk.firstTimeEntity('560000000'),

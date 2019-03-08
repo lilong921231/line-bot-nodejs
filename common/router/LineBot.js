@@ -7,8 +7,8 @@ function lineBot() {
 
     bot.on('message', function(event) {
         let callbalk = event.message.text;
-        let array;
-        if(callbalk === 'aiko') {
+     //   let array;
+  /*      if(callbalk === 'aiko') {
             array = [
                 testServer.talkServer(callbalk)
             ];
@@ -20,8 +20,8 @@ function lineBot() {
                 wedSever.wedTalkSever(callbalk).wedPayment,
                 wedSever.wedTalkSever(callbalk).wedConsultation
             ];
-        }
-        event.reply(array).then(data => {
+        }*/
+        event.reply( testServer.talkServer(callbalk)).then(data => {
 
         }).catch(error => {
 
