@@ -6,20 +6,23 @@ let dataAccess = new MondayDataAccess();
 
 
 function talkServer(event) {
-    Monday(event).then(data => {
+    switch (event) {
+        case 'aiko':
+            console.log('==========ceshi==========');
+            return [
+                // talk.firstTimeEntity(UserDetailed[0].Balance),
+                talk.firstTimeEntity('560000000'),
+                talk.receiptsOfWeek()
+            ];
+    }
+
+
+    /*Monday(event).then(data => {
         UserDetailed = data;
-        switch (event) {
-            case 'aiko':
-                console.log('==========ceshi==========');
-                return [
-                    // talk.firstTimeEntity(UserDetailed[0].Balance),
-                    talk.firstTimeEntity('560000000'),
-                    talk.receiptsOfWeek()
-                ];
-        }
+
     }).catch(err => {
         console.log(err);
-    });
+    });*/
 
 }
 
