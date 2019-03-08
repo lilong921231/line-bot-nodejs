@@ -40,12 +40,8 @@ function lineBot() {
         })
     });*/
     bot.on('message', function(event) {
-        console.log('ceshi linebot');
         event.reply(event.message.text).then(function (data) {
-            console.log(event.message.text);
-            console.log(data);
         }).catch(function (error) {
-            console.log(error);
         });
 
     });
