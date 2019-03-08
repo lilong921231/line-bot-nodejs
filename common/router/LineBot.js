@@ -10,6 +10,7 @@ function lineBot() {
         let array;
 
         if(callbalk === '水曜日') {
+            console.log('===========水曜日===============');
             array = wedSever(callbalk);
         } else {
             array = testServer(callbalk);
