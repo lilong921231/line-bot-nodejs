@@ -420,7 +420,7 @@ class mondayTalkEntity {
                         },
                         {
                             type: "image",
-                            url: "./images/dinner.png",
+                            url: imgUrl + "dinner.png",
                             margin: "md"
                         },
                         {
