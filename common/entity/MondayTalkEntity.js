@@ -340,7 +340,7 @@ class mondayTalkEntity {
                         },
                         {
                             type: "image",
-                            url: imgUrl + "cake.png",
+                            url: imgUrl + "cake.jpg",
                             margin: "md"
                         },
                         {
@@ -370,7 +370,7 @@ class mondayTalkEntity {
                         },
                         {
                             type: "image",
-                            url: imgUrl + "rose.png"
+                            url: imgUrl + "rose.jpg"
                         },
                         {
                             type: "text",
@@ -420,7 +420,7 @@ class mondayTalkEntity {
                         },
                         {
                             type: "image",
-                            url: imgUrl + "dinner.png",
+                            url: imgUrl + "dinner.jpg",
                             margin: "md"
                         },
                         {
