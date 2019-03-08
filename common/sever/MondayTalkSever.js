@@ -42,7 +42,4 @@ function Monday(event) {
     }
 }
 
-module.exports = {
-    talkServer,
-    talkPostback
-};
+module.exports = talkServer;
