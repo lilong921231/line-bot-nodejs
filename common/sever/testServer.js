@@ -6,6 +6,7 @@ let dataAccess = new MondayDataAccess();
 
 
 function talkServer(event) {
+    console.log(event);
     switch (event) {
         case 'aiko':
             console.log('==========ceshi==========');
