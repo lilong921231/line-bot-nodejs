@@ -28,6 +28,10 @@ function talkServer(event) {
 
 function talkPostback(postback) {
     let day = "日月火水木金土".charAt(new Date().getDay());
+
+    console.log(postback);
+
+
     switch (postback) {
         case 'OK':
             return [
