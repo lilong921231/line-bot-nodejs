@@ -21,7 +21,7 @@ function lineBot() {
                 wedSever.wedTalkSever(callbalk).wedConsultation
             ];
         }*/
-        event.reply( testServer.talkServer(callbalk)).then(data => {
+        event.reply( testServer(callbalk)).then(data => {
 
         }).catch(error => {
 
@@ -29,8 +29,8 @@ function lineBot() {
     });
 
     bot.on('postback', function (event) {
-        event.reply(testServer.talkServer(event.postback.data))
-            .then(data => {
+        const postback = event.postback.data;
+        event.reply(testServer(postback)).then(data => {
                 console.log(data);
                 console.log('============postback==========');
 
