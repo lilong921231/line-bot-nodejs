@@ -366,7 +366,7 @@ class mondayTalkEntity {
                         },
                         {
                             type: "image",
-                            url: imgUrl + "rose.jpg"
+                            url: imgUrl + "Rose.jpg"
                         },
                         {
                             type: "text",
