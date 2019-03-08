@@ -27,12 +27,15 @@ function talkServer(event) {
 }
 
 function talkPostback(postback) {
+    let day = "日月火水木金土".charAt(new Date().getDay());
     switch (postback) {
         case 'OK':
-            let day = "日月火水木金土".charAt(new Date().getDay());
-            return talk.detailedOfWeek('2018-11-09', day, '500000', '-2000000', '20000000');
-        case 'ceshi':
-            return talk.receiptsOfWeek();
+            return [
+                talk.detailedOfWeek('2018-11-09', day, '500000', '-2000000', '20000000'),
+                talk.Recommend('50000')
+            ];
+        case 'events':
+            return talk.thisWeekEvent('2018-11-09', day, '10800');
     }
 }
 

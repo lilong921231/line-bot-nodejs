@@ -290,9 +290,9 @@ class mondayTalkEntity {
                         {
                             type: "button",
                             action: {
-                                type: "uri",
+                                type: "postback",
                                 label: "OK",
-                                uri: "https://linecorp.com"
+                                data: "events"
                             },
                             margin: "xs"
                         }
@@ -306,7 +306,7 @@ class mondayTalkEntity {
      * thisWeekEvent
      * @returns {{type: string, altText: string, contents: {type: string, direction: string, body: {type: string, layout: string, contents: *[]}}}}
      */
-    thisWeekEvent(date, day, week, money) {
+    thisWeekEvent(date, day, money) {
         const nowDate = this.AddDate(date, 0);
         return {
             type: "flex",
@@ -335,7 +335,7 @@ class mondayTalkEntity {
                         },
                         {
                             type: "text",
-                            text: nowDate + "(" + week + ")",
+                            text: nowDate + "(" + day + ")",
                             margin: "md"
                         },
                         {
