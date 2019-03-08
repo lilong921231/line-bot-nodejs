@@ -39,6 +39,7 @@ function talkPostback(postback) {
                 talk.Recommend('50000')
             ];
         case 'events':
+            console.log('=============== events =============');
             return talk.thisWeekEvent('2018-11-09', day, '10800');
     }
 }
