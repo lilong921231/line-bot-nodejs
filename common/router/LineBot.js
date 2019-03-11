@@ -1,5 +1,5 @@
 let bot = require('../../line.config');
-let serverTest = require('../sever/MondayTalkSever');
+let serverTest = require('../sever/TalkSever');
 let testServer = require('../sever/testServer');
 let wedSever = require('../sever/WednesdayTalkSever');
 
