@@ -55,6 +55,7 @@ function talkServer(event) {
                         oldLoanYear, tenThousand, remainingSum, oldTenThousand, oldRemainingSum, forties),
                     wed.Consultation()
                 ];
+
         }
     }).catch(err => {
         console.log(err);

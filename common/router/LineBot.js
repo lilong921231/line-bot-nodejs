@@ -8,9 +8,7 @@ function lineBot() {
         let array = serverTest(callbalk);
 
         event.reply(array).then(data => {
-
         }).catch(error => {
-
         });
     });
 

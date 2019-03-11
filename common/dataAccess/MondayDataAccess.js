@@ -1,6 +1,5 @@
 let mysql = require('../../model/database/MySqlHelper');
 let dataAccess = new mysql();
-let UserDetailed = require('../entity/UserDetailed');
 
 /**
  * ユーザーの口座残高や、家賃や、給料などSQLごくの検索
