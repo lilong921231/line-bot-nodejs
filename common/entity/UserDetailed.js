@@ -12,6 +12,11 @@ module.exports = {
     UserId: '',
 
     /**
+     * 誕生日
+     */
+    BirthDate: '',
+
+    /**
      * 口座残高
      */
     Balance: '',

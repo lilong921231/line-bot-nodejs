@@ -21,18 +21,19 @@ class MondayDataAccess {
             strSql = strSql + "tb.Balance, ";
             strSql = strSql + "tb.UserId, ";
             strSql = strSql + "tb.Salary, ";
+            strSql = strSql + "tm.BirthDate";
             strSql = strSql + "tb.Rent, ";
-            strSql = strSql +  "tb.Deduction, ";
+            strSql = strSql + "tb.Deduction, ";
             strSql = strSql + "tb.Income ";
             strSql = strSql + "FROM ";
-            strSql = strSql +  "TM_Customer AS tm ";
-            strSql = strSql +  "LEFT JOIN ";
-            strSql = strSql +  "TB_CustomerAccount AS tb ";
-            strSql = strSql +  "ON ";
-            strSql = strSql +  "tm.UserId ";
-            strSql = strSql +  "= ";
-            strSql = strSql +  "tb.UserId ";
-            strSql = strSql +  "WHERE tm.MailAddress = '" + userMail + "'";
+            strSql = strSql + "TM_Customer AS tm ";
+            strSql = strSql + "LEFT JOIN ";
+            strSql = strSql + "TB_CustomerAccount AS tb ";
+            strSql = strSql + "ON ";
+            strSql = strSql + "tm.UserId ";
+            strSql = strSql + "= ";
+            strSql = strSql + "tb.UserId ";
+            strSql = strSql + "WHERE tm.MailAddress = '" + userMail + "'";
 
             return dataAccess.GetTable(strSql)/*.then(data => {
                      return data;
