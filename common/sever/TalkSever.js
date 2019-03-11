@@ -61,7 +61,6 @@ function talkServer(event) {
     });
 }
 
-
 function Monday(event) {
     if(event === 'aiko') {
         const eMail = event + '@docomo.ne.jp';
