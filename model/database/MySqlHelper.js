@@ -59,7 +59,6 @@ class MySqlHelper {
                 if (err) {
                     reject(err.message);
                 } else {
-                    console.log(result);
                     resolve(result);
                 }
             });

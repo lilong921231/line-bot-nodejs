@@ -14,7 +14,7 @@ class MondayDataAccess {
      * @param userMail ユーザのE-Mail
      * @constructor　検索の結果
      */
-    Monday(userMail) {
+    Monday(userId) {
 
         let strSql = "SELECT ";
             strSql = strSql + "tb.Balance, ";
@@ -32,7 +32,7 @@ class MondayDataAccess {
             strSql = strSql + "tm.UserId ";
             strSql = strSql + "= ";
             strSql = strSql + "tb.UserId ";
-            strSql = strSql + "WHERE tm.MailAddress = '" + userMail + "'";
+            strSql = strSql + "WHERE tm.UserId = '" + userId + "'";
 
             return dataAccess.GetTable(strSql)/*.then(data => {
                      return data;

@@ -18,12 +18,14 @@ function talkServer(event) {
         const days = date.getDay();
 
         const nowDate = years + '-' + month + '-' + days;
+
+        if(UserDetailed !== null) {
+            return [
+                talk.firstTimeEntity(UserDetailed[0].Balance),
+                talk.receiptsOfWeek()
+            ];
+        }
         switch (event) {
-            case 'aiko':
-                return [
-                    talk.firstTimeEntity(UserDetailed[0].Balance),
-                    talk.receiptsOfWeek()
-                ];
             case 'OK':
                 return [
                     talk.detailedOfWeek(nowDate, day, UserDetailed[0].Salary, UserDetailed[0].Rent, UserDetailed[0].Deduction),
@@ -64,17 +66,17 @@ function talkServer(event) {
 
 function Monday(event) {
     if(event === 'aiko') {
-        const eMail = event + '@docomo.ne.jp';
-        return dataAccess.Monday(eMail);
+        const userId = 1;
+        return dataAccess.Monday(userId);
     } else if(event === 'kennji') {
-        const eMail = event + '@yahoo.co.jp';
-        return dataAccess.Monday(eMail);
+        const userId = 2;
+        return dataAccess.Monday(userId);
     } else if(event === 'hiroshi') {
-        const eMail = event + '@docomo.ne.jp';
-        return dataAccess.Monday(eMail);
+        const userId = 3;
+        return dataAccess.Monday(userId);
     } else if(event === 'kaori') {
-        const eMail = event + '@docomo-camera.ne.jp';
-        return dataAccess.Monday(eMail);
+        const userId = 4;
+        return dataAccess.Monday(userId);
     } else {
         return event;
     }
