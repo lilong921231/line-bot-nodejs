@@ -1,4 +1,6 @@
-const imgUrl = "https://lilongceshi.herokuapp.com/images/";
+// const imgUrl = "https://lilongceshi.herokuapp.com/images/";
+const staticPath = 'https://b8ed2183.ngrok.io/';
+const imgUrl = staticPath + "images/";
 
 /**
  * 月曜日に表示する情報クラス
@@ -341,7 +343,9 @@ class mondayTalkEntity {
                         {
                             type: "image",
                             url: imgUrl + "cake.jpg",
-                            margin: "md"
+                            margin: "md",
+                            size: "full",
+                            aspectRatio: "20:13"
                         },
                         {
                             type: "text",
@@ -366,7 +370,9 @@ class mondayTalkEntity {
                         },
                         {
                             type: "image",
-                            url: imgUrl + "Rose.jpg"
+                            url: imgUrl + "Rose.jpg",
+                            size: "full",
+                            aspectRatio: "20:13"
                         },
                         {
                             type: "text",
@@ -417,7 +423,9 @@ class mondayTalkEntity {
                         {
                             type: "image",
                             url: imgUrl + "dinner.jpg",
-                            margin: "md"
+                            margin: "md",
+                            size: "full",
+                            aspectRatio: "20:13"
                         },
                         {
                             type: "button",
@@ -435,3 +443,4 @@ class mondayTalkEntity {
 }
 
 module.exports = mondayTalkEntity;
+module.exports.staticPath = staticPath;

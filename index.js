@@ -1,4 +1,4 @@
-var express = require('express');
+const express = require('express');
 let LineBot = require('./common/router/LineBot');
 let UserRouter = require('./common/router/UserInfoRouter');
 let UserUpdateRouter = require('./common/router/UserUpdateRouter');
@@ -21,8 +21,10 @@ app.post('/', LineBot);
 app.post('/userInfo', UserRouter);
 app.post('/userUpdate', UserUpdateRouter);
 
+app.use(express.static('public'));
+
 //express port:3000
-var server = app.listen(process.env.PORT || 3000, function() {
-    var port = server.address().port;
+const server = app.listen(process.env.PORT || 3000, function() {
+    const port = server.address().port;
     console.log("App now running on port:", port);
 });

@@ -1,3 +1,7 @@
+const staticPath = require('./MondayTalkEntity').staticPath;
+
+const htmlUrl = staticPath + "html/webPage.html";
+
 /**
  * 水曜日に表示する情報クラス
  * @author li long
@@ -348,7 +352,7 @@ class WednesdayTalkEntity {
                             "action": {
                                 "type": "uri",
                                 "label": "相談する",
-                                "uri": "http://city_golf"
+                                "uri": htmlUrl
                             }
                         },
                         {

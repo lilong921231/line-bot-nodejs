@@ -20,7 +20,7 @@ class MondayDataAccess {
             strSql = strSql + "tb.Balance, ";
             strSql = strSql + "tb.UserId, ";
             strSql = strSql + "tb.Salary, ";
-            strSql = strSql + "tm.BirthDate";
+            strSql = strSql + "tm.BirthDate, ";
             strSql = strSql + "tb.Rent, ";
             strSql = strSql + "tb.Deduction, ";
             strSql = strSql + "tb.Income ";
@@ -34,7 +34,8 @@ class MondayDataAccess {
             strSql = strSql + "tb.UserId ";
             strSql = strSql + "WHERE tm.UserId = '" + userId + "'";
 
-            return dataAccess.GetTable(strSql)/*.then(data => {
+            console.log(strSql);
+            return dataAccess.GetTable(strSql);/*.then(data => {
                      return data;
                 }).catch(err => {
                     return err;
