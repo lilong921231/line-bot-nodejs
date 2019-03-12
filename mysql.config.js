@@ -16,5 +16,6 @@ module.exports = {
         port: '3306', // ポート
         database: 'lineDemo', // MySQLのDB名
         multipleStatements: true, // クエリの中で複数のクエリ語句を伝えることができるかどうかです。  true：できる　　false：できない
+        useConnectionPooling: true
     }
 };

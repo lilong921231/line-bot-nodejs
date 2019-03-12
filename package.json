@@ -16,5 +16,8 @@
     "linebot": "^1.4.1",
     "log4js": "^4.0.2",
     "mysql": "^2.16.0"
+  },
+  "devDependencies": {
+    "webpack": "^4.29.6"
   }
 }

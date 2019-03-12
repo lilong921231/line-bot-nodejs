@@ -25,7 +25,6 @@ class MySqlHelper {
      */
     GetTable(sqlstring) {
         return new Promise((resolve, reject) => {
-            this.connection.connect();
             this.connection.query(sqlstring, (err, result) => {
                 if (err) {
                     reject(err.message);
@@ -41,7 +40,6 @@ class MySqlHelper {
                     resolve(_result);
                 }
             });
-            this.connection.end();
         });
     }
 
@@ -54,7 +52,6 @@ class MySqlHelper {
      */
     ExecuteNonQuery(sqlstring) {
         return new Promise((resolve, reject) => {
-            this.connection.connect();
             this.connection.query(sqlstring, (err, result) => {
                 if (err) {
                     reject(err.message);
@@ -62,7 +59,6 @@ class MySqlHelper {
                     resolve(result);
                 }
             });
-            this.connection.end();
         });
     }
 }
