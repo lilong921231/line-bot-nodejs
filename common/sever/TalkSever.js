@@ -8,6 +8,7 @@ let monTalkEntity = require('../entity/MondayTalkEntity');
 let wedTalkEntity = require('../entity/WednesdayTalkEntity');
 let MondayDataAccess = require('../dataAccess/MondayDataAccess');
 let UserDetailed = require('../entity/UserDetailed');
+// let UserDetailed;
 let talk = new monTalkEntity();
 let wed = new wedTalkEntity();
 let dataAccess = new MondayDataAccess();
@@ -16,59 +17,136 @@ let interest = 0.00133;
 // console.log(moment().format('YYYY年 MM月Do[(]dd[)]'));
 // console.log(moment().format("MM/DD/YYYY 00:00"));
 // console.log(moment().format("YYYY-MM-DD"));
+
 const talkServer = {
     service: function (event) {
-        const monment = moment();
+        // console.log(event);
         const regExp = /^B_[0-9]{4}$/;
         if (regExp.test(event)) {
             //Account Binding
             return this.UserInsights(event, true);
         }
+        console.log("Not Insight");
         return new Promise((resolve, reject) => {
             Monday(event).then(data => {
-                switch (event) {
-                    case "aiko":
-                        resolve ([
-                            talk.firstTimeEntity(data[0].Balance),
-                            talk.receiptsOfWeek()
-                        ]);
-                        break;
-                    case 'OK':
-                        resolve([
-                            talk.detailedOfWeek(
-                                monment.format("YYYY-MM-DD"),
-                                monment.format("dd"),
-                                data[0].Salary, data[0].Rent, data[0].Deduction
-                            ),
-                            talk.Recommend(data[0].Income)
-                        ]);
-                        break;
-                    case 'events':
-                        resolve(talk.thisWeekEvent(monment.format("YYYY-MM-DD"), monment.format("dd"), '10800'));
-                        break;
-                    default:
-                        reject(event);
+                console.log("Monday(event)");
+                console.log(data);
+                const objType = typeof(data);
+                if (objType === "object") {
+                    UserDetailed = data[0];
+                    // console.log(UserDetailed);
+                    resolve ([
+                        talk.firstTimeEntity(UserDetailed.Balance),
+                        talk.receiptsOfWeek()
+                    ]);
+                } else if (objType === "string") {
+                    switch (data) {
+                        case "deposit and withdrawal":
+                            // console.log(UserDetailed);
+                            resolve([
+                                talk.detailedOfWeek(
+                                    dateTime("YYYY-MM-DD"),
+                                    dateTime("dd"),
+                                    UserDetailed.Salary, UserDetailed.Rent, UserDetailed.Deduction
+                                ),
+                                talk.Recommend(UserDetailed.Income)
+                            ]);
+                            break;
+                        case "information of events":
+                            resolve([
+                                talk.thisWeekEvent(dateTime("YYYY-MM-DD"), dateTime("dd"), '10800')
+                            ]);
+                            break;
+                    }
                 }
-            })
+            });
         });
+        // return new Promise((resolve, reject) => {
+            // if (event === "deposit and withdrawal") {
+            //     resolve([
+            //         talk.detailedOfWeek(
+            //             datetime.format("YYYY-MM-DD"),
+            //             datetime.format("dd"),
+            //             UserDetailed[0].Salary, UserDetailed[0].Rent, UserDetailed[0].Deduction
+            //         ),
+            //         talk.Recommend(UserDetailed[0].Income)
+            //     ]);
+            // } else if (event === "info event") {
+            //     resolve(talk.thisWeekEvent(datetime.format("YYYY-MM-DD"), datetime.format("dd"), '10800'));
+            // }
+
+        // });
+        // return new Promise((resolve, reject) => {
+        //     Monday(event).then(data => {
+        //         switch (event) {
+        //             case "aiko":
+        //                 resolve ([
+        //                     talk.firstTimeEntity(data[0].Balance),
+        //                     talk.receiptsOfWeek()
+        //                 ]);
+        //                 break;
+        //             case 'OK':
+        //                 resolve([
+        //                     talk.detailedOfWeek(
+        //                         monment.format("YYYY-MM-DD"),
+        //                         monment.format("dd"),
+        //                         data[0].Salary, data[0].Rent, data[0].Deduction
+        //                     ),
+        //                     talk.Recommend(data[0].Income)
+        //                 ]);
+        //                 break;
+        //             case 'events':
+        //                 resolve(talk.thisWeekEvent(monment.format("YYYY-MM-DD"), monment.format("dd"), '10800'));
+        //                 break;
+        //             default:
+        //                 reject(event);
+        //         }
+        //     })
+        // });
     },
     UserInsights: function (event, isUserId) {
-        const date = moment().format("MM/DD/YYYY 00:00");
-        const userId = "B_2307";
+        const date = dateTime("MM/DD/YYYY 00:00");
+        const langId = talk.getInsightLangId();
+        console.log(langId);
         if (isUserId) {
-            return insightApi.GetInsights(event, date).then(data => {
-                console.log(data);
+            return insightApi.GetInsights(event, date, langId).then(data => {
                 return insightFlex.parseEntity(data);
             }).catch(function (err) {
                 console.log(err);
             });
         }
-        return insightApi.GetInsights(userId, date).then(data => {
+        const userId = "B_2307";
+        return insightApi.GetInsights(userId, date, langId).then(data => {
             return insightFlex.parseEntity(data);
         });
     },
-    Wednesday: function (callback) {
-        callback(talk.thisWeekEvent(moment().format("YYYY-MM-DD"), moment().format('dd'), '10800'));
+    Wednesday: function () {
+        return new Promise(resolve => {
+            console.log(UserDetailed);
+            const frontMonth = dateTime("M", 1, "M");
+            const rent = amountFormat(UserDetailed.Rent);
+            const age = getAge(UserDetailed.BirthDate);
+            const loanYear = getLoanYears(age);
+            const loan = loanMoney(UserDetailed.Rent, loanYear);
+            const oldLoanYear = getTenLoanYears(age);
+            const borrow_ = amountFormat(UserDetailed.BorrowedAmount);
+            const borrowedAmount = formatCurrencyT(borrow_);
+            const oldLoanSunMoney = loanMoney(UserDetailed.Rent, oldLoanYear);
+            const oldAge = getOldAge(age);
+            const tenThousand = frontTwoSubstring(loanMonthRemaining(borrow_, loanYear));
+            const remainingSum = afterSubstring(loanMonthRemaining(borrow_, loanYear));
+            const oldTenThousand = frontTwoSubstring(loanMonthRemaining(borrow_, oldLoanYear));
+            const oldRemainingSum = afterSubstring(loanMonthRemaining(borrow_, oldLoanYear));
+            const forties = ageRange(age);
+            resolve([
+                wed.rentText(frontMonth, rent),
+                wed.maxYearsLoan(loanYear, loan),
+                wed.tenYearsFromNow(oldAge, oldLoanYear, rent, oldLoanSunMoney),
+                wed.paymentDueToAgeChange(borrowedAmount, age, oldAge, loanYear,
+                    oldLoanYear, tenThousand, remainingSum, oldTenThousand, oldRemainingSum, forties),
+                wed.Consultation()
+            ]);
+        });
     }
 };
 
@@ -151,10 +229,8 @@ const service = {
                 ];
 
         }
-    }).catch(err => {
-    console.log(err);
-});
-}
+    }
+};
 
     // const frontMonth = getPreMonth(month);
     // const rent = frontTwoSubstring(UserDetailed[0].Rent);
@@ -170,8 +246,8 @@ const service = {
     // const oldTenThousand = frontTwoSubstring(loanMonthRemaining(borrowedAmount, oldLoanYear));
     // const oldRemainingSum = afterSubstring(loanMonthRemaining(borrowedAmount, oldLoanYear));
     // const forties = ageRange(age);
-    console.log(JSON.stringify(talk.thisWeekEvent(nowDate, day, '10800')));
-callback(talk.thisWeekEvent(nowDate, day, '10800'));
+    // console.log(JSON.stringify(talk.thisWeekEvent("", day, '10800')));
+// callback(talk.thisWeekEvent(nowDate, day, '10800'));
 // callback([
 //     wed.rentText(frontMonth, rent),
 //     wed.maxYearsLoan(loanYear, loan),
@@ -180,8 +256,7 @@ callback(talk.thisWeekEvent(nowDate, day, '10800'));
 //         oldLoanYear, tenThousand, remainingSum, oldTenThousand, oldRemainingSum, forties),
 //     wed.Consultation()
 // ]);
-}
-};
+// };
 
 // function talkServer(event) {
 //     Monday(event).then(data => {
@@ -257,6 +332,27 @@ function Monday(event) {
 }
 
 /**
+ * 指定時間を取得するの方法
+ * @author li yuyan
+ * @date 2019-3-13
+ * @param format 日付フォマート
+ * @param amount
+ * @param dateCode
+ * @returns {string}
+ */
+function dateTime(format, amount, dateCode) {
+    const date = moment();
+    if (dateCode === "Y") {
+        date.subtract(amount, 'years');
+    } else if (dateCode === "M") {
+        date.subtract(amount, 'months');
+    } else if (dateCode === "D") {
+        date.subtract(amount, 'days');
+    }
+    return date.format(format);
+}
+
+/**
  * 分位符を添加するの方法
  * @author li long
  * @date 2019-3-11
@@ -304,7 +400,14 @@ function frontSubstring(num) {
  * @returns {string}
  */
 function afterSubstring(num) {
+    num = num.toString();
     return num.substring(num.length - 4, num.length);
+}
+
+
+function amountFormat(num) {
+    num = num / 10000;
+    return num > 0 ? num : -num;
 }
 
 /**
@@ -315,7 +418,8 @@ function afterSubstring(num) {
  * @returns {string}
  */
 function frontTwoSubstring(num) {
-    return num.substring(0, num.length - 4);
+    num = num / 10000;
+    return num > 0 ? num : -num;
 }
 
 /**
@@ -339,11 +443,10 @@ function getPreMonth(month) {
  * @author li long
  * @date 2019-3-11
  * @param birthDate 誕生日
- * @param years 今の年
  * @returns {number}
  */
-function getAge(birthDate, years) {
-    return years - birthDate;
+function getAge(birthDate) {
+    return parseInt(moment(birthDate, "YYYY").fromNow().substr(0,2));
 }
 
 /**
@@ -419,17 +522,30 @@ function loanMonthRemaining(borrowedAmount, loanYear) {
  * @returns {number}
  */
 function ageRange(age) {
-    if (30 > age >= 20) {
-        return 20;
-    } else if (40 > age >= 30) {
-        return 30
-    } else if (50 > age >= 40) {
-        return 40;
-    } else if (60 > age >= 50) {
-        return 50;
-    } else if (70 > age >= 60) {
-        return 60;
+    if (age >= 20) {
+        if (age < 30) {
+            return 20;
+        } else if (age < 40) {
+            return 30;
+        } else if (age < 50) {
+            return 40;
+        } else if (age < 60) {
+            return 50;
+        } else if (age < 70) {
+            return 60;
+        }
     }
+    // if (30 > age >= 20) {
+    //     return 20;
+    // } else if (40 > age >= 30) {
+    //     return 30
+    // } else if (50 > age >= 40) {
+    //     return 40;
+    // } else if (60 > age >= 50) {
+    //     return 50;
+    // } else if (70 > age >= 60) {
+    //     return 60;
+    // }
 }
 
 module.exports = talkServer;

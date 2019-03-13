@@ -29,20 +29,8 @@
         if(ua.match(/iPhone|iPod/i) != null){
             //iphone代码
             // document.location = 'FrontShip://creadApp';
-            // window.location.reload();
-            // window.location.href = 'FrontShip://creadApp';
-            console.log(window);
-            // window.close();
-            if (confirm("您确定要关闭本页吗？")){
-                window.opener=null;
-                window.open('','_self');
-                window.close();
-            } else {
-
-            }
-            console.log(window);
-            // window.close();
-            // openWin("FrontShip://creadApp");
+            window.location.reload();
+            window.location.href = 'FrontShip://creadApp';
         }else if(ua.match(/Android/i) != null){
             //android代码
         }else if(ua.match(/iPad/i) != null){

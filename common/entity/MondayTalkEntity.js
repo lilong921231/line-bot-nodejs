@@ -1,6 +1,7 @@
 // const imgUrl = "https://lilongceshi.herokuapp.com/images/";
-const staticPath = 'https://0ea2514d.ngrok.io/';
+const staticPath = 'https://dcdd7e00.ngrok.io/';
 const imgUrl = staticPath + "images/";
+let insightLangId = "jp";
 
 /**
  * 月曜日に表示する情報クラス
@@ -102,7 +103,7 @@ class mondayTalkEntity {
                             action: {
                                 type: "postback",
                                 label: "OK",
-                                data: "OK"
+                                data: "deposit and withdrawal"
                             }
                         }
                     ]
@@ -294,7 +295,7 @@ class mondayTalkEntity {
                             action: {
                                 type: "postback",
                                 label: "OK",
-                                data: "events"
+                                data: "information of events"
                             },
                             margin: "xs"
                         }
@@ -439,6 +440,14 @@ class mondayTalkEntity {
                 }
             }
         }
+    }
+
+    setInsightLangId (langId) {
+        insightLangId = langId;
+    }
+
+    getInsightLangId() {
+        return insightLangId;
     }
 }
 

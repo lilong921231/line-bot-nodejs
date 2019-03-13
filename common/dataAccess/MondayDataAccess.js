@@ -23,7 +23,8 @@ class MondayDataAccess {
             strSql = strSql + "tm.BirthDate, ";
             strSql = strSql + "tb.Rent, ";
             strSql = strSql + "tb.Deduction, ";
-            strSql = strSql + "tb.Income ";
+            strSql = strSql + "tb.Income, ";
+            strSql = strSql + "tb.BorrowedAmount ";
             strSql = strSql + "FROM ";
             strSql = strSql + "TM_Customer AS tm ";
             strSql = strSql + "LEFT JOIN ";

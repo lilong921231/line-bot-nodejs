@@ -3,11 +3,11 @@ const http = require("http");
 const reqDataApi = require('../entity/InsightRequestEntity');
 
 const insightApiDataAccess = {
-    GetInsights: function (userId, date) {
+    GetInsights: function (userId, date, langId) {
         return new Promise((resolve, reject)=>{
             const options = reqDataApi.getOptions(userId, date);
 
-            const postData = reqDataApi.getInsights();
+            const postData = reqDataApi.getInsights(langId);
 
             const req = http.request(options,res => {
                 let data = "";
