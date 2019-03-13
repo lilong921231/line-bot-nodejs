@@ -14,6 +14,7 @@ class MySqlHelper {
      */
     constructor() {
         this.connection = mysql.createConnection(MySqlConnectionCfg);
+        // this.connection.connect();
     }
 
     /**
@@ -25,6 +26,7 @@ class MySqlHelper {
      */
     GetTable(sqlstring) {
         return new Promise((resolve, reject) => {
+            // this.connection.connect();
             this.connection.query(sqlstring, (err, result) => {
                 if (err) {
                     reject(err.message);
@@ -40,6 +42,7 @@ class MySqlHelper {
                     resolve(_result);
                 }
             });
+            // this.connection.end();
         });
     }
 
@@ -61,6 +64,24 @@ class MySqlHelper {
             });
         });
     }
+}
+
+function handleDisconnect(connection) {
+    connection.on('error', function(err) {
+        if (!err.fatal) {
+            return;
+        }
+
+        if (err.code !== 'PROTOCOL_CONNECTION_LOST') {
+            throw err;
+        }
+
+        console.log('Re-connecting lost connection: ' + err.stack);
+
+        connection = mysql.createConnection(connection.config);
+        handleDisconnect(connection);
+        connection.connect();
+    });
 }
 
 module.exports = MySqlHelper;

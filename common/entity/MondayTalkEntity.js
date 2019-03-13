@@ -1,5 +1,5 @@
 // const imgUrl = "https://lilongceshi.herokuapp.com/images/";
-const staticPath = 'https://b8ed2183.ngrok.io/';
+const staticPath = 'https://0ea2514d.ngrok.io/';
 const imgUrl = staticPath + "images/";
 
 /**
@@ -32,14 +32,14 @@ class mondayTalkEntity {
     firstTimeEntity(balance) {
         return {
             type: "flex",
-                altText: "Flex Message",
-                contents: {
+            altText: "Flex Message",
+            contents: {
                 type: "bubble",
-                    direction: "ltr",
-                    header: {
+                direction: "ltr",
+                header: {
                     type: "box",
-                        layout: "vertical",
-                        contents: [
+                    layout: "vertical",
+                    contents: [
                         {
                             type: "text",
                             text: "おはようございます。 ",
@@ -144,111 +144,111 @@ class mondayTalkEntity {
             type: "flex",
             altText: "Flex Message",
             contents: {
-            type: "bubble",
+                type: "bubble",
                 body: {
-                type: "box",
+                    type: "box",
                     layout: "horizontal",
                     spacing: "md",
                     contents: [
-                    {
-                        type: "box",
-                        layout: "vertical",
-                        contents: [
-                            {
-                                type: "text",
-                                text: nowDate + "(" + day + ")"
-                            },
-                            {
-                                type: "image",
-                                url: imgUrl + "salary_jpg.jpg",
-                                margin: "md",
-                                size: "full",
-                                aspectRatio: "20:13"
-                            },
-                            {
-                                type: "text",
-                                text: "給与",
-                                margin: "lg",
-                                size: "xs",
-                                align: "center",
-                                gravity: "bottom",
-                                weight: "regular",
-                                color: "#323232"
-                            },
-                            {
-                                type: "text",
-                                text: receipts + "円",
-                                size: "sm",
-                                align: "center",
-                                gravity: "center",
-                                weight: "regular",
-                                color: "#323232"
-                            },
-                            {
-                                type: "separator",
-                                margin: "xl",
-                                color: "#C5C5C5"
-                            },
-                            {
-                                type: "text",
-                                text: twoDaysLater + "(" + twoDaysLaterWeek + ")",
-                                margin: "xl"
-                            },
-                            {
-                                type: "image",
-                                url: imgUrl + "accountBalance_jpg.jpg",
-                                margin: "md",
-                                size: "full",
-                                aspectRatio: "20:13"
-                            },
-                            {
-                                type: "text",
-                                text: "口座振込（家賃）",
-                                margin: "md",
-                                align: "center",
-                                color: "#323232"
-                            },
-                            {
-                                type: "text",
-                                text: "-" + rent + "円",
-                                margin: "sm",
-                                align: "center",
-                                color: "#323232"
-                            },
-                            {
-                                type: "separator",
-                                margin: "xl",
-                                color: "#C5C5C5"
-                            },
-                            {
-                                type: "text",
-                                text: fourDaysLater + "(" + fourDaysLaterWeek + ")",
-                                margin: "md"
-                            },
-                            {
-                                type: "image",
-                                url: imgUrl + "creditCard_jpg.jpg",
-                                margin: "md",
-                                size: "full",
-                                aspectRatio: "20:13"
-                            },
-                            {
-                                type: "text",
-                                text: "ABCカード引落し",
-                                align: "center",
-                                color: "#323232"
-                            },
-                            {
-                                type: "text",
-                                text: "-" + ABCCode + "円",
-                                align: "center",
-                                color: "#323232"
-                            }
-                        ]
-                    }
-                ]
+                        {
+                            type: "box",
+                            layout: "vertical",
+                            contents: [
+                                {
+                                    type: "text",
+                                    text: nowDate + "(" + day + ")"
+                                },
+                                {
+                                    type: "image",
+                                    url: imgUrl + "salary_jpg.jpg",
+                                    margin: "md",
+                                    size: "full",
+                                    aspectRatio: "20:13"
+                                },
+                                {
+                                    type: "text",
+                                    text: "給与",
+                                    margin: "lg",
+                                    size: "xs",
+                                    align: "center",
+                                    gravity: "bottom",
+                                    weight: "regular",
+                                    color: "#323232"
+                                },
+                                {
+                                    type: "text",
+                                    text: receipts + "円",
+                                    size: "sm",
+                                    align: "center",
+                                    gravity: "center",
+                                    weight: "regular",
+                                    color: "#323232"
+                                },
+                                {
+                                    type: "separator",
+                                    margin: "xl",
+                                    color: "#C5C5C5"
+                                },
+                                {
+                                    type: "text",
+                                    text: twoDaysLater + "(" + twoDaysLaterWeek + ")",
+                                    margin: "xl"
+                                },
+                                {
+                                    type: "image",
+                                    url: imgUrl + "accountBalance_jpg.jpg",
+                                    margin: "md",
+                                    size: "full",
+                                    aspectRatio: "20:13"
+                                },
+                                {
+                                    type: "text",
+                                    text: "口座振込（家賃）",
+                                    margin: "md",
+                                    align: "center",
+                                    color: "#323232"
+                                },
+                                {
+                                    type: "text",
+                                    text: "-" + rent + "円",
+                                    margin: "sm",
+                                    align: "center",
+                                    color: "#323232"
+                                },
+                                {
+                                    type: "separator",
+                                    margin: "xl",
+                                    color: "#C5C5C5"
+                                },
+                                {
+                                    type: "text",
+                                    text: fourDaysLater + "(" + fourDaysLaterWeek + ")",
+                                    margin: "md"
+                                },
+                                {
+                                    type: "image",
+                                    url: imgUrl + "creditCard_jpg.jpg",
+                                    margin: "md",
+                                    size: "full",
+                                    aspectRatio: "20:13"
+                                },
+                                {
+                                    type: "text",
+                                    text: "ABCカード引落し",
+                                    align: "center",
+                                    color: "#323232"
+                                },
+                                {
+                                    type: "text",
+                                    text: "-" + ABCCode + "円",
+                                    align: "center",
+                                    color: "#323232"
+                                }
+                            ]
+                        }
+                    ]
+                }
             }
-        }
         }
     }
 
