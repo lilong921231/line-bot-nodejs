@@ -16,6 +16,12 @@ function lineBot() {
     bot.on('message', function(event) {
         const type = event.message.type;
         if (type === "text") {
+            if (event.message.text === "1") {
+                talkSever.Wednesday().then(data => {
+                    callback(event, data);
+                });
+                return;
+            }
             talkSever.service(event.message.text).then(data => {
                 // console.log(JSON.stringify(data));
                 callback(event, data);

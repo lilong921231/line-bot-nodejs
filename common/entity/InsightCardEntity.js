@@ -1,4 +1,6 @@
-const imgUrl = require('./MondayTalkEntity.js').staticPath + "images/teaser_images/";
+const commonEntity = require('./CommonEntity');
+
+const imgUrl = commonEntity.staticPath + "images/teaser_images/";
 
 const moment = require('moment');
 
@@ -135,7 +137,7 @@ function insightCardImage(insight) {
             ]
         };
     }
-
+    flex.altText = commonEntity.getTemplateAltText(flex.contents.body.contents);
     return flex;
 }
 module.exports = {
