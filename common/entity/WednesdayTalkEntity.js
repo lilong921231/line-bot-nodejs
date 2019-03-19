@@ -1,6 +1,7 @@
 const commonEntity = require('./CommonEntity');
 
-const htmlUrl = commonEntity.staticPath + "html/webPage.html";
+// const htmlUrl = commonEntity.staticPath + "html/webPage.html";
+const htmlUrl = commonEntity.staticPath + "openApp?ipAddress=" + commonEntity.staticPath + "&userId=";
 
 let interest = 0.00133;
 
@@ -363,7 +364,7 @@ const WednesdayTalkEntity = {
                             "action": {
                                 "type": "uri",
                                 "label": "相談する",
-                                "uri": htmlUrl
+                                "uri": htmlUrl + commonEntity.getUserId(commonEntity.getUserAccount())
                             }
                         },
                         {

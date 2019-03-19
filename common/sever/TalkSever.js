@@ -28,8 +28,8 @@ const talkServer = {
         // console.log("Not Insight");
         return new Promise((resolve) => {
             Monday(event).then(data => {
-                console.log("Monday(event)");
-                console.log(data);
+                // console.log("Monday(event)");
+                // console.log(data);
                 const objType = typeof(data);
                 if (objType === "object") {
                     UserDetailed = data[0];
