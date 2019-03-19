@@ -76,7 +76,7 @@ const WednesdayTalkEntity = {
                         },
                         {
                             "type": "text",
-                            "text": loanMoney(infos.rent, loanYears) + "万円",
+                            "text": commonEntity.formatCurrencyT(commonEntity.amountConversion(loanMoney(infos.rent, loanYears))) + "万円",
                             "align": "center",
                             "weight": "bold"
                         },
@@ -118,7 +118,7 @@ const WednesdayTalkEntity = {
                         },
                         {
                             "type": "text",
-                            "text": loanMoney(infos.rent, loanYears) + "万円",
+                            "text": commonEntity.formatCurrencyT(commonEntity.amountConversion(loanMoney(infos.rent, loanYears))) + "万円",
                             "align": "center",
                             "weight": "bold"
                         },
@@ -140,11 +140,13 @@ const WednesdayTalkEntity = {
      * @returns {{type: string, altText: string, contents: {type: string, direction: string, body: {type: string, layout: string, contents: *[]}}}}
      */
     paymentDueToAgeChange(infos) {
-        const borrow = commonEntity.formatCurrencyT(commonEntity.amountConversion(infos.borrowedAmount));
+        const borrow = commonEntity.amountConversion(infos.borrowedAmount);
         const userAge = commonEntity.getUserAge(infos.birthDate);
         const userAgeLoanYears = getLoanYears(userAge);
         const oldAge = commonEntity.getOldAge(userAge, 10);
         const oldAgeLoanYears = getLoanYears(oldAge);
+        const nowLoanMonthRemaining = loanMonthRemaining(infos.borrowedAmount, userAgeLoanYears);
+        const yearsLoanMonthRemaining = loanMonthRemaining(infos.borrowedAmount, oldAgeLoanYears);
         const entity= {
             "type": "flex",
             "altText": "Flex Message",
@@ -214,7 +216,7 @@ const WednesdayTalkEntity = {
                                             "contents": [
                                                 {
                                                     "type": "text",
-                                                    "text":  borrow + "\n万円",
+                                                    "text":  commonEntity.formatCurrencyT(borrow) + "\n万円",
                                                     "size": "xxs",
                                                     "align": "center",
                                                     "gravity": "center",
@@ -268,15 +270,15 @@ const WednesdayTalkEntity = {
                                             "contents": [
                                                 {
                                                     "type": "text",
-                                                    "text": commonEntity.amountConversion(loanMonthRemaining(borrow, userAgeLoanYears))+ "万" +
-                                                        afterSubstring(loanMonthRemaining(borrow, userAgeLoanYears)) + "円",
+                                                    "text": commonEntity.amountConversion(nowLoanMonthRemaining, true)+ "万" +
+                                                        afterSubstring(nowLoanMonthRemaining) + "円",
                                                     "size": "xxs",
                                                     "align": "center"
                                                 },
                                                 {
                                                     "type": "text",
-                                                    "text": commonEntity.amountConversion(loanMonthRemaining(borrow, oldAgeLoanYears)) + "万" +
-                                                        afterSubstring(loanMonthRemaining(borrow, oldAgeLoanYears)) + "円",
+                                                    "text": commonEntity.amountConversion(yearsLoanMonthRemaining, true) + "万" +
+                                                        afterSubstring(yearsLoanMonthRemaining) + "円",
                                                     "size": "xxs",
                                                     "align": "center"
                                                 }
@@ -413,7 +415,7 @@ function getRangeOfAge(age) {
  * @returns {number}
  */
 function loanMonthRemaining(borrowedAmount, loanYear) {
-    return borrowedAmount * interest * Math.pow(1 + interest, loanYear * 12) / (Math.pow(1 + interest, loanYear * 12) - 1);
+    return parseInt(borrowedAmount * interest * Math.pow(1 + interest, loanYear * 12) / (Math.pow(1 + interest, loanYear * 12) - 1));
 }
 
 /**
@@ -424,8 +426,7 @@ function loanMonthRemaining(borrowedAmount, loanYear) {
  * @returns {string}
  */
 function afterSubstring(number) {
-    number = number.toString();
-    return number.substring(number.length - 4, number.length);
+    return number % 10000;
 }
 
 /**
@@ -437,7 +438,11 @@ function afterSubstring(number) {
  * @returns {number}
  */
 function loanMoney(rent, loanYear) {
-    return rent * (Math.pow(1 + interest, loanYear * 12) - 1) / interest * Math.pow(1 + interest, loanYear * 12);
+    rent = commonEntity.amountValue(rent);
+    // console.log(rent);
+    // console.log(loanYear);
+    // console.log(rent * (Math.pow(1 + interest, loanYear * 12) - 1) / Math.pow(1 + interest, loanYear * 12) / interest);
+    return parseInt(rent * (Math.pow(1 + interest, loanYear * 12) - 1) / Math.pow(1 + interest, loanYear * 12) / interest);
 }
 
 /**

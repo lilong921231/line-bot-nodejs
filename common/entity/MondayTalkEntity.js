@@ -73,7 +73,7 @@ const mondayTalkEntity = {
                         },
                         {
                             type: "text",
-                            text: "は" + balance + "円です。"
+                            text: "は" + commonEntity.formatCurrencyT(balance) + "円です。"
                         }
                     ],
                 }
@@ -134,24 +134,6 @@ const mondayTalkEntity = {
      * @returns {{type: string, altText: string, contents: {type: string, body: {type: string, layout: string, spacing: string, contents: {type: string, layout: string, contents: *[]}[]}}}}
      */
     detailedOfWeek(date, format, receipts, rent, ABCCode) {
-
-        // const nowDate = this.AddDate(date, 0);
-        // const twoDaysLater = this.AddDate(date, 2);
-        // const fourDaysLater = this.AddDate(date, 4);
-        // var dateJp = ['日', '月', '火', '水', '木', '金', '土'];
-        // var twoDaysLaterWeek; // Two days later
-        // var fourDaysLaterWeek; // four days later
-        //
-        // /**
-        //  * Date calculation
-        //  */
-        // for(var i = 0; i < dateJp.length; i++) {
-        //     if(day === dateJp[i]) {
-        //         twoDaysLaterWeek = dateJp[(i + 2) % 7];
-        //         fourDaysLaterWeek = dateJp[(i + 4) % 7];
-        //         break;
-        //     }
-        // }
 
         const truncs = [
             {type: "salary", date: commonEntity.dateTime(format, {time: date}), amount: receipts},
@@ -232,7 +214,7 @@ const mondayTalkEntity = {
                         },
                         {
                             type: "text",
-                            text: recommendMoney + "円",
+                            text: commonEntity.formatCurrencyT(recommendMoney) + "円",
                             size: "xl",
                             align: "center",
                             weight: "regular",
@@ -345,7 +327,7 @@ const mondayTalkEntity = {
                                 },
                                 {
                                     type: "text",
-                                    text: money + "円",
+                                    text: commonEntity.formatCurrencyT(money) + "円",
                                     align: "end"
                                 }
                             ]
@@ -437,7 +419,7 @@ function getTempSalary(trunc) {
         },
         {
             type: "text",
-            text: trunc.amount + "円",
+            text: commonEntity.formatCurrencyT(trunc.amount) + "円",
             size: "sm",
             align: "center",
             gravity: "center",
@@ -470,7 +452,7 @@ function getTempTransfer(trunc) {
         },
         {
             type: "text",
-            text: "-" + trunc.amount + "円",
+            text: "-" + commonEntity.formatCurrencyT(trunc.amount) + "円",
             margin: "sm",
             align: "center",
             color: "#323232"
@@ -500,7 +482,7 @@ function getTempWithdrawal(trunc) {
         },
         {
             type: "text",
-            text: "-" + trunc.amount + "円",
+            text: "-" + commonEntity.formatCurrencyT(trunc.amount) + "円",
             align: "center",
             color: "#323232"
         }

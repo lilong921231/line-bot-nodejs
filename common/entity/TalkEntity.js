@@ -2,6 +2,9 @@ const commonEntity = require('./CommonEntity');
 const monTalk = require('./MondayTalkEntity');
 const wedTalk = require('./WednesdayTalkEntity');
 
+const insightFlex = require('./InsightCardEntity');
+const insightApi = require('../dataAccess/InsightApiDataAccess');
+
 const talkEntity = {
     getBasicInfos(balance) {
         return [
@@ -24,7 +27,7 @@ const talkEntity = {
             monTalk.thisWeekEvent(commonEntity.dateTime("YYYY-MM-DD"), "YYYY年 MM月DD日(dd)", money)
         ];
     },
-    getWedRentLoanInfos(objs){
+    getWedRentLoanInfos(objs, flag){
         return [
             wedTalk.rentText(objs.rent),
             wedTalk.maxYearsLoan(objs.yearsLoan),
@@ -32,6 +35,15 @@ const talkEntity = {
             wedTalk.paymentDueToAgeChange(objs.paymentDueTo),
             wedTalk.Consultation()
         ];
+    },
+    getUserInsights(userId, byId) {
+        return insightApi.GetInsights(userId, byId).then(data => {
+            if (typeof(data) === "string" && data === "MsgId") {
+                return [commonEntity.getMessageInfo(commonEntity.getNoPId())];
+            }
+            // console.log(data);
+            return insightFlex.parseEntity(data);
+        });
     }
 };
 

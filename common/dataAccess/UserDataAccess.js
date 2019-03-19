@@ -10,10 +10,25 @@ let dataAccess = new mysql();
 class UserInfoDataAccess {
     /**
      * 検索のSQL語句
-     * @param userMail ユーザーのE-Mail
+     * @param userId ユーザーのId
      */
-    userInfo(userMail) {
-        const strSql = "SELECT * FROM TM_Customer WHERE MailAddress = '" + userMail + "'";
+    userInfo(userId) {
+        let strSql = "SELECT tm.`Name`, ";
+        strSql = strSql + "tm.NameKana, ";
+        strSql = strSql + "tm.PhoneNumber, ";
+        strSql = strSql + "tm.Sex, ";
+        strSql = strSql + "tm.MailAddress, ";
+        strSql = strSql + "tm.BirthDate, ";
+        strSql = strSql + "tb.Rent, ";
+        strSql = strSql + "tb.BorrowedAmount ";
+        strSql = strSql + "FROM ";
+        strSql = strSql + "TM_Customer AS tm ";
+        strSql = strSql + "INNER JOIN ";
+        strSql = strSql + "TB_CustomerAccount AS tb ";
+        strSql = strSql + "WHERE ";
+        strSql = strSql + "tm.UserId = " + userId;
+        strSql = strSql + " AND ";
+        strSql = strSql + "tb.UserId = " + userId;
         return dataAccess.GetTable(strSql);
     }
 

@@ -35,7 +35,7 @@ class MondayDataAccess {
             strSql = strSql + "tb.UserId ";
             strSql = strSql + "WHERE tm.UserId = '" + userId + "'";
 
-            console.log(strSql);
+            // console.log(strSql);
             return dataAccess.GetTable(strSql);/*.then(data => {
                      return data;
                 }).catch(err => {

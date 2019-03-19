@@ -1,17 +1,16 @@
 const commonEntity = require('../entity/CommonEntity');
 const talkEntity = require('../entity/TalkEntity');
 
-const insightApi = require('../dataAccess/InsightApiDataAccess');
-const insightFlex = require('../entity/InsightCardEntity');
-
 // let monTalkEntity = require('../entity/MondayTalkEntity');
 // let wedTalkEntity = require('../entity/WednesdayTalkEntity');
 let MondayDataAccess = require('../dataAccess/MondayDataAccess');
 let UserDetailed = require('../entity/UserDetailed');
+// let UserDetailed;
+
+let dataAccess = new MondayDataAccess();
 
 // let talk = new monTalkEntity();
 // let wed = new wedTalkEntity();
-let dataAccess = new MondayDataAccess();
 
 // let interest = 0.00133;
 // console.log(moment().format('YYYY年 MM月Do[(]dd[)]'));
@@ -26,7 +25,7 @@ const talkServer = {
             //Account Binding
             return this.UserInsights(event, true);
         }
-        console.log("Not Insight");
+        // console.log("Not Insight");
         return new Promise((resolve) => {
             Monday(event).then(data => {
                 console.log("Monday(event)");
@@ -45,6 +44,8 @@ const talkServer = {
                         case commonEntity.getMonEvents():
                             resolve(talkEntity.getMonEventsInfos('10800'));
                             break;
+                        default:
+                            resolve([commonEntity.getMessageInfo(commonEntity.getNoMsgId())]);
                     }
                 }
             });
@@ -93,65 +94,58 @@ const talkServer = {
         // });
     },
     UserInsights: function (event, isUserId) {
-        const date = commonEntity.dateTime("MM/DD/YYYY 00:00");
-        const langId = commonEntity.getInsightLangId();
-        console.log(langId);
-        if (isUserId) {
-            return insightApi.GetInsights(event, date, langId).then(data => {
-                return insightFlex.parseEntity(data);
-            }).catch(function (err) {
-                console.log(err);
-            });
+        let userId = event;
+        if (!isUserId) {
+            userId = commonEntity.getUserId(commonEntity.getUserAccount());
         }
-        const userId = "B_2307";
-        return insightApi.GetInsights(userId, date, langId).then(data => {
-            return insightFlex.parseEntity(data);
-        });
+        return talkEntity.getUserInsights(userId, isUserId);
     },
     Wednesday: function () {
         return new Promise(resolve => {
-            console.log(UserDetailed);
-            const objs = {};
-            objs.rent = {
-                rent: UserDetailed.Rent,
-                date: {format: "M", others: {amount:1, dateCode: "M", sub: true}}
-            };
-            objs.yearsLoan = {
-                birthDate: UserDetailed.BirthDate,
-                rent: UserDetailed.Rent
-            };
-            objs.yearsFromNow = {
-                birthDate: UserDetailed.BirthDate,
-                rent: UserDetailed.Rent
-            };
-            objs.paymentDueTo = {
-                birthDate: UserDetailed.BirthDate,
-                rent: UserDetailed.Rent,
-                borrowedAmount: UserDetailed.BorrowedAmount
-            };
-            resolve(talkEntity.getWedRentLoanInfos(objs));
+            // console.log(UserDetailed);
+            if (!UserDetailed.UserId) {
+                Monday(commonEntity.getUserAccount()).then(data => {
+                    // console.log(JSON.stringify(talkEntity.getWedRentLoanInfos(getWedParams(data[0]))));
+                    resolve (talkEntity.getWedRentLoanInfos(getWedParams(data[0]), 0));
+                });
+                return;
+            }
+            resolve(talkEntity.getWedRentLoanInfos(getWedParams(UserDetailed),　1));
         });
     }
 };
 
 function Monday(event) {
-    if(event === 'aiko') {
-        const userId = 1;
+    const userId = commonEntity.getUserId(event);
+    if (userId) {
         return dataAccess.Monday(userId);
-    } else if(event === 'kennji') {
-        const userId = 2;
-        return dataAccess.Monday(userId);
-    } else if(event === 'hiroshi') {
-        const userId = 3;
-        return dataAccess.Monday(userId);
-    } else if(event === 'kaori') {
-        const userId = 4;
-        return dataAccess.Monday(userId);
-    } else {
-        return new Promise(resolve => {
-            resolve(event);
-        });
     }
+    return new Promise(resolve => {
+        resolve(event);
+    });
+}
+
+function getWedParams(userDetail) {
+    const objs = {};
+    // console.log(userDetail);
+    objs.rent = {
+        rent: userDetail.Rent,
+        date: {format: "M", others: {amount:1, dateCode: "M", sub: true}}
+    };
+    objs.yearsLoan = {
+        birthDate: userDetail.BirthDate,
+        rent: userDetail.Rent
+    };
+    objs.yearsFromNow = {
+        birthDate: userDetail.BirthDate,
+        rent: userDetail.Rent
+    };
+    objs.paymentDueTo = {
+        birthDate: userDetail.BirthDate,
+        rent: userDetail.Rent,
+        borrowedAmount: userDetail.BorrowedAmount
+    };
+    return objs;
 }
 
 // const service = {

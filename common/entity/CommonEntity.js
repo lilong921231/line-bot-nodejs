@@ -1,11 +1,16 @@
 const moment = require('moment');
 moment.locale("ja");
 
-const staticPath = 'https://f3245774.ngrok.io/';
+const staticPath = 'https://36eab602.ngrok.io/';
 const postback = {
     MonReceipts: "deposit and withdrawal",
     MonEvents: "information of events"
 };
+const msgId = {
+    PersonecticsId: "NoPersonecticsUserId",
+    NoMessageId: "NoMessage"
+};
+let userAccount = "aiko";
 let insightLangId = "jp";
 
 const commonEntity = {
@@ -42,6 +47,7 @@ const commonEntity = {
      * @author li long
      * @date 2019-3-11
      * @param age 年齢
+     * @param num X年後
      * @returns {*}
      */
     getOldAge(age, num) {
@@ -61,8 +67,16 @@ const commonEntity = {
         return parseInt(date);
     },
 
-    amountConversion(number) {
-        number = number / 10000;
+    amountConversion(number, notRoundFlag) {
+        if (notRoundFlag) {
+            number = parseInt(number / 10000);
+        } else {
+            number = Math.round(number / 10000);
+        }
+        return number > 0 ? number : -number;
+    },
+
+    amountValue(number) {
         return number > 0 ? number : -number;
     },
 
@@ -74,6 +88,36 @@ const commonEntity = {
             }
         });
         return altText;
+    },
+
+    setUserAccount (user) {
+        userAccount = user;
+    },
+
+    getUserAccount() {
+        return userAccount;
+    },
+
+    getUserId(user) {
+        let userId;
+        switch (user) {
+            case "aiko":
+                userId = 1;
+                break;
+            case 'kennji':
+                userId = 2;
+                break;
+            case 'hiroshi':
+                userId = 3;
+                break;
+            case 'kaori':
+                userId = 4;
+                break;
+        }
+        if (userId) {
+            this.setUserAccount(user);
+        }
+        return userId;
     },
 
     setInsightLangId (langId) {
@@ -127,7 +171,27 @@ const commonEntity = {
             }
         }
         return date.format(format);
+    },
+
+    getNoPId() {
+        return msgId.PersonecticsId;
+    },
+
+    getNoMsgId() {
+        return msgId.NoMessageId;
+    },
+
+    getMessageInfo (msgId) {
+        switch (msgId) {
+            case this.getNoPId():
+                return "Personeticsのアカウントが登録させていません。";
+            case this.getNoMsgId():
+                return "メッセージ入力ありがとうございます。ごめんなさい、入力された内容が判別できませんでした。";
+            default:
+                console.log("No the msgId.");
+        }
     }
+
 };
 
 module.exports = commonEntity;

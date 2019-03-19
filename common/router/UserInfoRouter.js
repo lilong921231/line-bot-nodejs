@@ -4,8 +4,8 @@ let dataAccess = new UserInfoDataAccess();
 
 function UserRouter(req, res) {
     console.log(req);
-    const MailAddress = req.body.MailAddress || '';
-    dataAccess.userInfo(MailAddress).then(data => {
+    const userId = req.body.userId || '';
+    dataAccess.userInfo(userId).then(data => {
         let dataJson;
         if(data.length !== 1) {
             dataJson = {start: '4', data: data, message: 'ユーザーの情報がありません。'};
