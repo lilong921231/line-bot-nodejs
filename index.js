@@ -25,8 +25,8 @@ app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 
-//express port:3000
-const server = app.listen(process.env.PORT || 3000, function() {
+//express port:4000
+const server = app.listen(4000, function() {
     const port = server.address().port;
-    console.log("App now running on port:", port);
+    console.log("App now running on port:Å@%s", port);
 });

@@ -17,20 +17,28 @@ function parseEntity(data) {
             // console.log(insight);
             info = {};
             teaser = insight.teaserBlocks;
-            info.date = moment(teaser[1].date).format("M月 DD日");
-            info.title = teaser[2].text;
-            info.text = teaser[3].text;
-            if (insight.teaserTemplate === "image") {
-                info.url = imgUrl + teaser[4].url + ".png";
-                if (teaser[4].url.split(" ").length > 1) {
-                    info.url = imgUrl + "CG100.png";
-                } else {
-                    info.url = imgUrl + teaser[4].url + ".png";
+            teaser.forEach(function (block) {
+                switch (block.blockId) {
+                    case "date":
+                        info.date = moment(block.date).format("M月 DD日");
+                        break;
+                    case "title":
+                        info.title = block.text;
+                        break;
+                    case "teaser-text":
+                        info.text = block.text;
+                        break;
+                    case "main-image":
+                        // info.url = imgUrl + block.url + ".png";
+                        if (block.url.split(" ").length > 1) {
+                            info.url = imgUrl + "CG100.png";
+                        } else {
+                            info.url = imgUrl + block.url + ".png";
+                        }
+                        break;
                 }
-                // fs.exists(info.url, function () {
-                //     info.url = imgUrl + "CG100.png";
-                // });
-            } else if (insight.teaserTemplate === "doubleBox") {
+            });
+            if (insight.teaserTemplate === "doubleBox") {
                 info.box = [[teaser[5].text, teaser[4].text], [teaser[7].text, teaser[6].text]];
             }
             resultEntity.push(insightCardImage(info));

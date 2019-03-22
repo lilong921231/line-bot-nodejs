@@ -34,12 +34,12 @@ function OpenAppRouter(req, res) {
     '\n' +
     '        if(ua.match(/iPhone|iPod/i) != null){\n' +
     '            //iphone代码\n' +
-    // '               document.location = \'FrontShip://creadApp' + req['_parsedUrl'].search + '\';\n' +
-    '               window.location.href = \'FrontShip://creadApp' + req['_parsedUrl'].search + '\';\n' +
-    // '            window.location.href = \'FrontShip://creadApp?email=456\';\n' +' + req['_parsedUrl'].search + '
+    // '            document.location = \'FrontShip://creadApp' + req['_parsedUrl'].search + '\';\n' +
+    '            window.location.href = \'test3://?userId=' + req.query.userId + '\';\n' +
+    // '            window.location.href = \'Fujitsu://bank?userId=' + req.query.userId + '\';\n' +
     '        }else if(ua.match(/Android/i) != null){\n' +
     '            //android代码\n' +
-    '               window.location.href = \'FrontShip://com.fujitsu.app' + req['_parsedUrl'].search + '\';\n' +
+    '               window.location.href = \'Fujitsu://bank?userId=' + req['_parsedUrl'].search + '\';\n' +
     '        }else if(ua.match(/iPad/i) != null){\n' +
     '            //ipad代码\n' +
     '        }\n' +
